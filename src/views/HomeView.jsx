@@ -91,11 +91,12 @@ const HomeView = () => {
         minHeight: '85vh',
         display: 'flex',
         alignItems: 'center',
-        background: '#EAF5EB',
-        padding: '80px 24px',
+        justifyContent: 'center',
+        background: '#051A0E',
+        padding: '100px 24px 80px',
         overflow: 'hidden'
       }}>
-        {/* Full-bleed Ambient Background Video (istockphoto-1752101103-640_adpp_is.mp4) */}
+        {/* Full-bleed Ambient Background Video (istockphoto-1752101103-640_adpp_is.mp4) with High Opacity */}
         <video
           src="/hero-video.mp4"
           autoPlay
@@ -109,70 +110,107 @@ const HomeView = () => {
             height: '100%',
             objectFit: 'cover',
             zIndex: 0,
-            opacity: 0.45
+            opacity: 0.85
           }}
         />
 
-        {/* Soft Mint Light Blend Overlay for Clean Text Readability */}
+        {/* Dark Mint Glass Gradient Overlay for High Text Contrast & Video Clarity */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(234,245,235,0.7) 0%, rgba(234,245,235,0.45) 50%, rgba(234,245,235,0.85) 100%)',
+          background: 'linear-gradient(180deg, rgba(15,41,27,0.65) 0%, rgba(15,41,27,0.45) 50%, rgba(15,41,27,0.85) 100%)',
           zIndex: 1,
           pointerEvents: 'none'
         }} />
 
-        <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 10 }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
           
-          {/* Left-Aligned Hero Text Format */}
-          <div style={{ maxWidth: '640px', textAlign: 'left' }}>
-            <div className="badge-gold animate-pulse-gold" style={{ marginBottom: '16px', display: 'inline-flex' }}>
-              <Trophy size={14} />
-              INDIA'S PREMIER SPORTS EVENT PLATFORM
+          {/* Centered Hero Text Container */}
+          <div style={{ maxWidth: '820px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div className="badge-gold animate-pulse-gold" style={{
+              marginBottom: '20px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: '#FFFFFF',
+              color: '#0F4C2C',
+              padding: '8px 24px',
+              fontSize: '0.85rem',
+              fontWeight: 800,
+              border: '2px solid #D4AF37',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+              borderRadius: '999px'
+            }}>
+              <Trophy size={16} style={{ color: '#B88E14' }} />
+              <span>INDIA'S PREMIER SPORTS EVENT PLATFORM</span>
             </div>
 
             <h1 style={{
               fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(2.5rem, 5vw, 4.2rem)',
+              fontSize: 'clamp(2.6rem, 5.5vw, 4.4rem)',
               fontWeight: 900,
-              lineHeight: 1.1,
+              lineHeight: 1.15,
               marginBottom: '20px',
-              color: '#1C331C'
+              color: '#FFFFFF',
+              textShadow: '0 4px 20px rgba(0,0,0,0.85), 0 0 30px rgba(118,163,118,0.5)'
             }}>
               Where Champions <br />
-              <span className="text-fern-gradient">Begin Their Journey</span>
+              <span style={{ color: '#F7D358', textShadow: '0 2px 14px rgba(247,211,88,0.5), 0 4px 20px rgba(0,0,0,0.9)' }}>Begin Their Journey</span>
             </h1>
 
             <p style={{
-              fontSize: '1.1rem',
-              color: '#3D5A3D',
-              lineHeight: 1.6,
-              marginBottom: '32px',
-              maxWidth: '560px',
-              fontFamily: 'Poppins, sans-serif'
+              fontSize: '1.15rem',
+              color: '#EAF2EA',
+              lineHeight: 1.7,
+              marginBottom: '36px',
+              maxWidth: '680px',
+              fontFamily: 'Poppins, sans-serif',
+              textShadow: '0 2px 10px rgba(0,0,0,0.9)'
             }}>
               Discover, host, and compete in national marathons, T20 cricket leagues, football cups, and state athletic championships with real-time registrations and verified digital passes.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '40px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '40px' }}>
               <button
                 onClick={() => navigateTo('events')}
-                className="btn btn-fern"
-                style={{ padding: '14px 36px', fontSize: '1.05rem' }}
+                className="btn btn-gold"
+                style={{
+                  padding: '16px 40px',
+                  fontSize: '1.1rem',
+                  fontWeight: 900,
+                  borderRadius: '999px',
+                  boxShadow: '0 8px 25px rgba(212,175,55,0.5)'
+                }}
               >
                 Explore Events
-                <ArrowRight size={18} />
+                <ArrowRight size={20} />
+              </button>
+              <button
+                onClick={() => navigateTo('about')}
+                className="btn btn-outline-white"
+                style={{
+                  padding: '16px 36px',
+                  fontSize: '1.1rem',
+                  fontWeight: 800,
+                  borderRadius: '999px',
+                  border: '2px solid #FFFFFF',
+                  color: '#FFFFFF',
+                  background: 'rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(8px)'
+                }}
+              >
+                About Platform
               </button>
             </div>
 
-            {/* Quick Trust Badges */}
-            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#3D5A3D' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {/* Quick Trust Badges Centered */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', fontSize: '0.92rem', color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(15,41,27,0.5)', padding: '6px 16px', borderRadius: '999px', border: '1px solid rgba(118,163,118,0.4)', backdropFilter: 'blur(4px)' }}>
                 <ShieldCheck size={18} style={{ color: '#76A376' }} />
                 <span>100% Verified Organizers</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Zap size={18} style={{ color: '#D4AF37' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(15,41,27,0.5)', padding: '6px 16px', borderRadius: '999px', border: '1px solid rgba(212,175,55,0.4)', backdropFilter: 'blur(4px)' }}>
+                <Zap size={18} style={{ color: '#F7D358' }} />
                 <span>Instant Pass Issue</span>
               </div>
             </div>
@@ -962,28 +1000,91 @@ const HomeView = () => {
         </div>
       </section>
 
-      {/* 8. CALL TO ACTION BANNER */}
-      <section style={{ padding: '80px 24px', background: '#F2F7F2' }}>
+      {/* 8. CALL TO ACTION BANNER (FULL-BLEED END-TO-END WITH HIGH-DEFINITION SPORTS BACKGROUND IMAGE) */}
+      <section style={{
+        position: 'relative',
+        padding: '100px 24px',
+        width: '100%',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1920&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        overflow: 'hidden'
+      }}>
+        {/* Dark Fern Gradient Overlay for Text Contrast */}
         <div style={{
-          maxWidth: '1000px',
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(15,76,44,0.92) 0%, rgba(28,51,28,0.95) 100%)',
+          zIndex: 1
+        }} />
+
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1100px',
           margin: '0 auto',
-          background: 'linear-gradient(135deg, #76A376 0%, #3A603A 100%)',
-          border: '2px solid #F7D358',
-          borderRadius: '24px',
-          padding: '48px 32px',
           textAlign: 'center',
-          boxShadow: '0 20px 40px rgba(118,163,118,0.3)',
           color: '#FFFFFF'
         }}>
-          <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '16px' }}>
-            Ready to Take Your Winning Edge?
+          <div className="badge-gold animate-pulse-gold" style={{ marginBottom: '20px', display: 'inline-flex', padding: '8px 24px', fontSize: '0.9rem', background: '#FFFFFF', color: '#0F4C2C', fontWeight: 800, borderRadius: '999px' }}>
+            <Trophy size={16} style={{ color: '#B88E14' }} />
+            JOIN INDIA'S #1 SPORTS PLATFORM TODAY
+          </div>
+
+          <h2 style={{
+            fontFamily: 'Cinzel, serif',
+            fontSize: 'clamp(2.4rem, 5.5vw, 3.6rem)',
+            color: '#FFFFFF',
+            fontWeight: 900,
+            lineHeight: 1.15,
+            marginBottom: '20px',
+            textShadow: '0 4px 20px rgba(0,0,0,0.6)'
+          }}>
+            Ready to Claim Your <span style={{ color: '#F7D358', textShadow: '0 2px 12px rgba(247,211,88,0.4)' }}>Winning Edge?</span>
           </h2>
-          <p style={{ color: '#EAF2EA', fontSize: '1rem', maxWidth: '600px', margin: '0 auto 32px' }}>
-            Join thousands of athletes and premium sports organizers across India today.
+
+          <p style={{
+            color: '#EAF2EA',
+            fontSize: '1.15rem',
+            maxWidth: '750px',
+            margin: '0 auto 36px',
+            lineHeight: 1.7,
+            fontFamily: 'Poppins, sans-serif'
+          }}>
+            Join over 120,000 athletes, 500+ tournament organizers, and sports academies across India. Experience 100% digital registration, instant QR e-passes, and live championship leaderboards today.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <button onClick={() => navigateTo('events')} className="btn btn-gold" style={{ padding: '14px 36px', fontSize: '1.05rem' }}>
-              Register for an Event
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => navigateTo('events')}
+              className="btn btn-gold"
+              style={{
+                padding: '16px 40px',
+                fontSize: '1.1rem',
+                fontWeight: 900,
+                borderRadius: '999px',
+                boxShadow: '0 10px 30px rgba(212,175,55,0.45)'
+              }}
+            >
+              Register For An Event
+              <ArrowRight size={20} />
+            </button>
+            <button
+              onClick={() => navigateTo('pricing')}
+              className="btn btn-outline-white"
+              style={{
+                padding: '16px 36px',
+                fontSize: '1.1rem',
+                fontWeight: 800,
+                borderRadius: '999px',
+                border: '2px solid #FFFFFF',
+                color: '#FFFFFF',
+                background: 'rgba(255,255,255,0.12)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              Host A Tournament
             </button>
           </div>
         </div>
