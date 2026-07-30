@@ -987,12 +987,12 @@ const AboutView = () => {
       </div>
 
       {/* Lightbox Rendering */}
-      {activeLightboxIdx !== null && (
+      {activeLightboxIdx !== null && filteredGallery[activeLightboxIdx] && (
         <ChampionsGalleryLightbox
           item={filteredGallery[activeLightboxIdx]}
           onClose={() => setActiveLightboxIdx(null)}
-          onNext={() => setActiveLightboxIdx((activeLightboxIdx + 1) % filteredGallery.length)}
-          onPrev={() => setActiveLightboxIdx((activeLightboxIdx - 1 + filteredGallery.length) % filteredGallery.length)}
+          onNext={() => setActiveLightboxIdx((activeLightboxIdx + 1) % (filteredGallery.length || 1))}
+          onPrev={() => setActiveLightboxIdx((activeLightboxIdx - 1 + (filteredGallery.length || 1)) % (filteredGallery.length || 1))}
         />
       )}
 
