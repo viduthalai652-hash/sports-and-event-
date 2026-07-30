@@ -412,7 +412,7 @@ export const INITIAL_NOTIFICATIONS = [
     date: '2026-07-22',
     time: '02:00 PM',
     unread: false,
-    image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80',
+    image: '/football-banner.jpg',
     content: 'The official match schedule for the Gold Cup Invitational Football Championship semi-finals in Goa has been published.'
   },
   {
@@ -422,7 +422,7 @@ export const INITIAL_NOTIFICATIONS = [
     date: '2026-07-20',
     time: '09:30 AM',
     unread: false,
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=600&q=80',
+    image: '/kabaddi-banner.jpg',
     content: 'All team captains for SRV State Kabaddi Clash 2026 must submit player weight certificates before August 20th.'
   }
 ];

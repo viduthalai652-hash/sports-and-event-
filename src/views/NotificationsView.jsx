@@ -106,6 +106,7 @@ const NotificationsView = () => {
                   <img
                     src={notif.image || 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80'}
                     alt={notif.title}
+                    onError={e => { e.target.onerror = null; e.target.src = 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80'; }}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div style={{
