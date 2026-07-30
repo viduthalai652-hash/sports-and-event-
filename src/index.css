@@ -21,9 +21,10 @@
   --text-gold: #997A15;
   --text-white: #FFFFFF;
 
-  --font-heading: 'Cinzel', 'Playfair Display', serif;
-  --font-subheading: 'Playfair Display', serif;
-  --font-body: 'Poppins', 'Inter', sans-serif;
+  --font-title: 'Cinzel', serif;
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-subheading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --shadow-fern: 0 10px 25px -5px rgba(118, 163, 118, 0.35);
   --shadow-gold: 0 10px 25px -5px rgba(212, 175, 55, 0.3);
@@ -47,33 +48,39 @@
 
 html, body {
   font-family: var(--font-body);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.012em;
+  line-height: 1.6;
   background-color: var(--bg-main);
   color: var(--text-primary);
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--light-fern), var(--deep-fern));
-  border: 1px solid var(--premium-gold);
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--premium-gold);
-}
-
-/* Typography Utilities */
+/* Typography Rules for Professional Website Feel */
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading);
-  letter-spacing: 0.5px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
   color: var(--text-primary);
+}
+
+h1 {
+  font-family: var(--font-title);
+  letter-spacing: 0.01em;
+}
+
+p, span, div, body, input, select, textarea {
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+}
+
+button, .btn {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.025em;
 }
 
 .text-gold-gradient {
