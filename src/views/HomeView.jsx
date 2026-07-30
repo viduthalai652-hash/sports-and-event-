@@ -135,27 +135,32 @@ const HomeView = () => {
               background: '#FFFFFF',
               color: '#0F4C2C',
               padding: '8px 24px',
-              fontSize: '0.85rem',
+              fontSize: '0.9rem',
               fontWeight: 800,
               border: '2px solid #D4AF37',
               boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
-              borderRadius: '999px'
+              borderRadius: '999px',
+              fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase'
             }}>
               <Trophy size={16} style={{ color: '#B88E14' }} />
-              <span>INDIA'S PREMIER SPORTS EVENT PLATFORM</span>
+              <span>SRV THE WINNING EDGE SPORTS AND EVENT MANAGEMENT CENTRE</span>
             </div>
 
             <h1 style={{
-              fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(2.6rem, 5.5vw, 4.4rem)',
+              fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
+              fontSize: 'clamp(3rem, 6.5vw, 5.2rem)',
               fontWeight: 900,
-              lineHeight: 1.15,
+              lineHeight: 1.05,
               marginBottom: '20px',
               color: '#FFFFFF',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
               textShadow: '0 4px 20px rgba(0,0,0,0.85), 0 0 30px rgba(118,163,118,0.5)'
             }}>
-              Where Champions <br />
-              <span style={{ color: '#F7D358', textShadow: '0 2px 14px rgba(247,211,88,0.5), 0 4px 20px rgba(0,0,0,0.9)' }}>Begin Their Journey</span>
+              Inspiring Communities <br />
+              <span style={{ color: '#F7D358', textShadow: '0 2px 14px rgba(247,211,88,0.5), 0 4px 20px rgba(0,0,0,0.9)' }}>Where Champions Begin Their Journey</span>
             </h1>
 
             <p style={{
@@ -163,43 +168,64 @@ const HomeView = () => {
               color: '#EAF2EA',
               lineHeight: 1.7,
               marginBottom: '36px',
-              maxWidth: '680px',
-              fontFamily: 'Poppins, sans-serif',
+              maxWidth: '780px',
+              fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
               textShadow: '0 2px 10px rgba(0,0,0,0.9)'
             }}>
-              Discover, host, and compete in national marathons, T20 cricket leagues, football cups, and state athletic championships with real-time registrations and verified digital passes.
+              Building Champions. Creating Opportunities. Inspiring Communities. We promote sports, fitness and community engagement through professionally organised sporting events, athlete-development initiatives and memorable experiences.
             </p>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '40px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
               <button
                 onClick={() => navigateTo('events')}
                 className="btn btn-gold"
                 style={{
-                  padding: '16px 40px',
+                  padding: '16px 36px',
                   fontSize: '1.1rem',
                   fontWeight: 900,
                   borderRadius: '999px',
+                  fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
+                  letterSpacing: '1.5px',
                   boxShadow: '0 8px 25px rgba(212,175,55,0.5)'
                 }}
               >
-                Explore Events
-                <ArrowRight size={20} />
+                EXPLORE OUR EVENTS →
               </button>
               <button
-                onClick={() => navigateTo('about')}
+                onClick={() => navigateTo('events')}
                 className="btn btn-outline-white"
                 style={{
-                  padding: '16px 36px',
+                  padding: '16px 32px',
                   fontSize: '1.1rem',
-                  fontWeight: 800,
+                  fontWeight: 900,
                   borderRadius: '999px',
                   border: '2px solid #FFFFFF',
                   color: '#FFFFFF',
                   background: 'rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(8px)'
+                  backdropFilter: 'blur(8px)',
+                  fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
+                  letterSpacing: '1.5px'
                 }}
               >
-                About Platform
+                REGISTER NOW
+              </button>
+              <button
+                onClick={() => navigateTo('contact')}
+                className="btn btn-outline-white"
+                style={{
+                  padding: '16px 32px',
+                  fontSize: '1.1rem',
+                  fontWeight: 900,
+                  borderRadius: '999px',
+                  border: '2px solid #D4AF37',
+                  color: '#F7D358',
+                  background: 'rgba(15,76,44,0.4)',
+                  backdropFilter: 'blur(8px)',
+                  fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
+                  letterSpacing: '1.5px'
+                }}
+              >
+                PARTNER WITH US
               </button>
             </div>
 
