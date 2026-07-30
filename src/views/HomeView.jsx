@@ -123,40 +123,41 @@ const HomeView = () => {
           pointerEvents: 'none'
         }} />
 
-        <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 10, display: 'flex', justifyContent: 'flex-start' }}>
           
-          {/* Centered Hero Text Container */}
-          <div style={{ maxWidth: '820px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          {/* Left-Aligned Compact Hero Text Container */}
+          <div style={{ maxWidth: '720px', textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <div className="badge-gold animate-pulse-gold" style={{
-              marginBottom: '20px',
+              marginBottom: '16px',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
               background: '#FFFFFF',
               color: '#0F4C2C',
-              padding: '8px 24px',
-              fontSize: '0.9rem',
+              padding: '6px 18px',
+              fontSize: '0.82rem',
               fontWeight: 800,
               border: '2px solid #D4AF37',
               boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
               borderRadius: '999px',
               fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
-              letterSpacing: '1.5px',
+              letterSpacing: '1.2px',
               textTransform: 'uppercase'
             }}>
-              <Trophy size={16} style={{ color: '#B88E14' }} />
+              <Trophy size={14} style={{ color: '#B88E14' }} />
               <span>SRV THE WINNING EDGE SPORTS AND EVENT MANAGEMENT CENTRE</span>
             </div>
 
             <h1 style={{
               fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
-              fontSize: 'clamp(3rem, 6.5vw, 5.2rem)',
+              fontSize: 'clamp(2.2rem, 4.2vw, 3.4rem)',
               fontWeight: 900,
-              lineHeight: 1.05,
-              marginBottom: '20px',
+              lineHeight: 1.1,
+              marginBottom: '16px',
               color: '#FFFFFF',
               textTransform: 'uppercase',
-              letterSpacing: '1px',
+              letterSpacing: '0.8px',
+              textAlign: 'left',
               textShadow: '0 4px 20px rgba(0,0,0,0.85), 0 0 30px rgba(118,163,118,0.5)'
             }}>
               Inspiring Communities <br />
@@ -164,28 +165,29 @@ const HomeView = () => {
             </h1>
 
             <p style={{
-              fontSize: '1.15rem',
+              fontSize: '0.98rem',
               color: '#EAF2EA',
-              lineHeight: 1.7,
-              marginBottom: '36px',
-              maxWidth: '780px',
+              lineHeight: 1.6,
+              marginBottom: '28px',
+              maxWidth: '650px',
+              textAlign: 'left',
               fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
               textShadow: '0 2px 10px rgba(0,0,0,0.9)'
             }}>
               Building Champions. Creating Opportunities. Inspiring Communities. We promote sports, fitness and community engagement through professionally organised sporting events, athlete-development initiatives and memorable experiences.
             </p>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
               <button
                 onClick={() => navigateTo('events')}
                 className="btn btn-gold"
                 style={{
-                  padding: '16px 40px',
-                  fontSize: '1.15rem',
+                  padding: '12px 32px',
+                  fontSize: '1rem',
                   fontWeight: 900,
                   borderRadius: '999px',
                   fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
-                  letterSpacing: '1.5px',
+                  letterSpacing: '1.2px',
                   boxShadow: '0 8px 25px rgba(212,175,55,0.5)'
                 }}
               >
@@ -193,10 +195,10 @@ const HomeView = () => {
               </button>
             </div>
 
-            {/* Quick Trust Badges Centered */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', fontSize: '0.92rem', color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(15,41,27,0.5)', padding: '6px 16px', borderRadius: '999px', border: '1px solid rgba(118,163,118,0.4)', backdropFilter: 'blur(4px)' }}>
-                <ShieldCheck size={18} style={{ color: '#76A376' }} />
+            {/* Left-Aligned Trust Badges */}
+            <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '24px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(15,41,27,0.5)', padding: '5px 14px', borderRadius: '999px', border: '1px solid rgba(118,163,118,0.4)', backdropFilter: 'blur(4px)' }}>
+                <ShieldCheck size={16} style={{ color: '#76A376' }} />
                 <span>100% Verified Organizers</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(15,41,27,0.5)', padding: '6px 16px', borderRadius: '999px', border: '1px solid rgba(212,175,55,0.4)', backdropFilter: 'blur(4px)' }}>
