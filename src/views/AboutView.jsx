@@ -671,32 +671,79 @@ const AboutView = () => {
 
         {/* 7. ORGANIZER CTA CALLOUT */}
         <div style={{
-          background: 'linear-gradient(135deg, #1C331C 0%, #0F4C2C 100%)',
+          background: 'linear-gradient(135deg, #0F4C2C 0%, #1C331C 100%)',
           borderRadius: '24px',
           padding: '48px 32px',
           color: '#FFFFFF',
           textAlign: 'center',
-          boxShadow: '0 20px 40px rgba(15, 76, 44, 0.25)'
+          boxShadow: '0 20px 45px rgba(15, 76, 44, 0.3)',
+          border: '1.5px solid #D4AF37'
         }}>
-          <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.2rem', marginBottom: '16px' }}>
+          <h2 style={{
+            fontFamily: 'Cinzel, serif',
+            fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
+            color: '#FFFFFF',
+            fontWeight: 900,
+            marginBottom: '16px',
+            textShadow: '0 3px 12px rgba(0,0,0,0.6)'
+          }}>
             Ready to Host Your Next Tournament on SRV?
           </h2>
-          <p style={{ fontSize: '1.05rem', color: '#EAF2EA', maxWidth: '680px', margin: '0 auto 28px', lineHeight: 1.6 }}>
+          <p style={{
+            fontSize: '1.08rem',
+            color: '#EAF2EA',
+            maxWidth: '680px',
+            margin: '0 auto 32px',
+            lineHeight: 1.65,
+            fontFamily: 'Poppins, sans-serif',
+            textShadow: '0 1px 4px rgba(0,0,0,0.5)'
+          }}>
             Join over 500+ organizers across India. Publish your sports event in under 5 minutes and leverage our 0% commission payment system and instant QR ticket check-ins.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
             <button
               onClick={() => navigateTo('pricing')}
               className="btn btn-gold"
-              style={{ padding: '14px 32px', fontSize: '1rem' }}
+              style={{
+                padding: '16px 36px',
+                fontSize: '1rem',
+                fontWeight: 900,
+                borderRadius: '999px',
+                boxShadow: '0 8px 25px rgba(212,175,55,0.4)'
+              }}
             >
               View Organizer Pricing Tiers
               <ArrowRight size={18} />
             </button>
             <button
               onClick={() => navigateTo('contact')}
-              className="btn btn-outline-gold"
-              style={{ padding: '14px 32px', fontSize: '1rem', color: '#FFFFFF', borderColor: '#FFFFFF' }}
+              style={{
+                background: '#FFFFFF',
+                color: '#0F4C2C',
+                border: '2px solid #FFFFFF',
+                borderRadius: '999px',
+                padding: '16px 36px',
+                fontSize: '1rem',
+                fontWeight: 800,
+                fontFamily: "'Outfit', 'Poppins', sans-serif",
+                letterSpacing: '0.5px',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                transition: 'all 0.2s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#F7D358';
+                e.currentTarget.style.borderColor = '#F7D358';
+                e.currentTarget.style.color = '#1C331C';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = '#FFFFFF';
+                e.currentTarget.style.borderColor = '#FFFFFF';
+                e.currentTarget.style.color = '#0F4C2C';
+              }}
             >
               Contact Support Team
             </button>
