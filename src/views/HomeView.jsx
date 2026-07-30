@@ -822,37 +822,43 @@ const HomeView = () => {
                 title: 'Trusted Organizers',
                 desc: '100% verified sports federations, academies, and tournament hosts.',
                 icon: ShieldCheck,
-                image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80'
+                image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?auto=format&fit=crop&w=800&q=80'
               },
               {
                 title: 'Easy Online Registration',
                 desc: 'Seamless 3-step registration with digital bib issuing and QR receipts.',
                 icon: Zap,
-                image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80'
+                image: 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=800&q=80'
               },
               {
                 title: 'Instant Confirmation',
                 desc: 'Receive real-time SMS & email tickets right after payment.',
                 icon: CheckCircle2,
-                image: 'https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=800&q=80'
+                image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1556742049-0a67daf4005a?auto=format&fit=crop&w=800&q=80'
               },
               {
                 title: 'Secure Payments',
                 desc: 'Encrypted payment gateways with zero hidden processing charges.',
                 icon: Award,
-                image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80'
+                image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=800&q=80'
               },
               {
                 title: 'Real-time Notifications',
                 desc: 'Instant alerts for schedule changes, bib pickups, and winner announcements.',
                 icon: Calendar,
-                image: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80'
+                image: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80'
               },
               {
                 title: 'Professional Management',
                 desc: 'Complete admin suite with player rosters, CSV exports, and analytics.',
                 icon: Globe,
-                image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80'
+                image: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80'
               }
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -878,7 +884,7 @@ const HomeView = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    onError={e => { e.target.onerror = null; e.target.src = FALLBACK_IMAGE; }}
+                    onError={e => { e.target.onerror = null; e.target.src = item.fallback; }}
                     style={{
                       position: 'absolute',
                       inset: 0,
@@ -886,8 +892,7 @@ const HomeView = () => {
                       height: '100%',
                       objectFit: 'cover',
                       zIndex: 0,
-                      opacity: 1,
-                      transition: 'transform 0.5s ease'
+                      transition: 'transform 0.6s ease'
                     }}
                   />
 
