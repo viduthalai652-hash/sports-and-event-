@@ -41,7 +41,7 @@ const EventsView = () => {
   };
 
   return (
-    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
+    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F8FAF8' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
         {/* Page Hero Header with Olympic Champions Sports Banner Background */}

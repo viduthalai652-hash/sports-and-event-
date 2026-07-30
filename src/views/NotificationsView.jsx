@@ -15,7 +15,7 @@ const NotificationsView = () => {
   });
 
   return (
-    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
+    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F8FAF8' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* Page Header */}

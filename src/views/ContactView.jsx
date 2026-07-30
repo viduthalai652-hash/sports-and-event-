@@ -21,7 +21,7 @@ const ContactView = () => {
   };
 
   return (
-    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
+    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F8FAF8' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
         {/* Page Header */}

@@ -2,18 +2,18 @@
   /* Light Fern & Metallic Gold Theme Tokens */
   --light-fern: #76A376;
   --light-fern-hover: #5F8B5F;
-  --light-fern-soft: #EAF2EA;
+  --light-fern-soft: #F4F8F4;
   --deep-fern: #3A603A;
   --dark-fern: #1C331C;
 
   --premium-gold: #D4AF37;
   --luxury-gold: #B88E14;
   --gold-shiny: #F7D358;
-  --gold-soft-bg: #FFFDF2;
+  --gold-soft-bg: #FFFDF5;
 
-  --bg-main: #F2F7F2;
-  --bg-card: #FFFFFF;
-  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-main: #F8FAF8;
+  --bg-card: #FBFDFB;
+  --bg-glass: rgba(248, 250, 248, 0.94);
 
   --text-primary: #1C331C;
   --text-secondary: #3D5A3D;

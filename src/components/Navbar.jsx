@@ -19,9 +19,9 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300" style={{
-      background: '#EAF5EB',
-      borderBottom: '1px solid rgba(118, 163, 118, 0.15)',
-      boxShadow: '0 2px 10px rgba(28, 51, 28, 0.03)'
+      background: '#F8FAF8',
+      borderBottom: '1px solid rgba(118, 163, 118, 0.18)',
+      boxShadow: '0 2px 12px rgba(28, 51, 28, 0.04)'
     }}>
       <div style={{ width: '100%', padding: '0 40px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         

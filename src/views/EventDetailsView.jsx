@@ -39,10 +39,10 @@ const EventDetailsView = () => {
   const seatsPercent = Math.min(100, Math.round((event.registeredCount / event.maxSeats) * 100));
 
   return (
-    <div style={{ background: '#F2F7F2', minHeight: '100vh', paddingBottom: '80px' }}>
+    <div style={{ background: '#F8FAF8', minHeight: '100vh', paddingBottom: '80px' }}>
       
       {/* Top Breadcrumb & Navigation Bar */}
-      <div style={{ background: '#EAF5EB', borderBottom: '1px solid rgba(118, 163, 118, 0.3)', padding: '16px 24px' }}>
+      <div style={{ background: '#F8FAF8', borderBottom: '1px solid rgba(118, 163, 118, 0.2)', padding: '16px 24px' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <button
             onClick={() => navigateTo('events')}

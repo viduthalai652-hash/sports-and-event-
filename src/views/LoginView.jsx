@@ -33,7 +33,7 @@ const LoginView = () => {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '40px 20px',
-      background: 'radial-gradient(circle at 50% 30%, #F5F9F6 0%, #E6EFE8 60%, #D8E5DC 100%)',
+      background: 'radial-gradient(circle at 50% 30%, #F8FAF8 0%, #EFF4F0 60%, #E2ECE5 100%)',
       overflow: 'hidden'
     }}>
       {/* Background Floating Particle Dust */}
