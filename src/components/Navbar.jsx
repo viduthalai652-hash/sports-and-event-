@@ -36,7 +36,7 @@ const Navbar = () => {
           {/* Desktop Text Navigation Links + Pill Action Button */}
           <div className="desktop-nav-group" style={{ gap: '32px' }}>
             
-            <nav style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+            <nav style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
               {navItems.map(item => {
                 const isActive = currentView === item.id;
                 return (
@@ -46,25 +46,27 @@ const Navbar = () => {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: isActive ? '#76A376' : '#1C331C',
-                      fontFamily: 'Poppins, sans-serif',
+                      color: isActive ? '#0F4C2C' : '#234223',
+                      fontFamily: "'Outfit', 'Plus Jakarta Sans', 'Poppins', sans-serif",
                       fontWeight: isActive ? 800 : 700,
-                      fontSize: '0.98rem',
+                      fontSize: '0.88rem',
+                      letterSpacing: '0.8px',
+                      textTransform: 'uppercase',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '6px',
-                      padding: '4px 0',
+                      gap: '7px',
+                      padding: '8px 0',
                       transition: 'all 0.2s ease',
                       position: 'relative',
                       whiteSpace: 'nowrap',
-                      borderBottom: isActive ? '2.5px solid #76A376' : '2.5px solid transparent'
+                      borderBottom: isActive ? '3px solid #0F4C2C' : '3px solid transparent'
                     }}
                     onMouseEnter={e => {
-                      if (!isActive) e.currentTarget.style.color = '#76A376';
+                      if (!isActive) e.currentTarget.style.color = '#0F4C2C';
                     }}
                     onMouseLeave={e => {
-                      if (!isActive) e.currentTarget.style.color = '#1C331C';
+                      if (!isActive) e.currentTarget.style.color = '#234223';
                     }}
                   >
                     <span>{item.label}</span>
@@ -72,12 +74,14 @@ const Navbar = () => {
                     {/* Unread Notifications Badge */}
                     {item.badge > 0 && (
                       <span style={{
-                        background: '#EF4444',
+                        background: 'linear-gradient(135deg, #EF4444, #DC2626)',
                         color: '#FFFFFF',
-                        fontSize: '0.65rem',
+                        fontSize: '0.68rem',
                         fontWeight: 800,
-                        padding: '2px 6px',
-                        borderRadius: '999px'
+                        padding: '2px 7px',
+                        borderRadius: '999px',
+                        boxShadow: '0 2px 8px rgba(239,68,68,0.35)',
+                        lineHeight: 1
                       }}>
                         {item.badge}
                       </span>
@@ -92,10 +96,26 @@ const Navbar = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                 <button
                   onClick={() => navigateTo('events')}
-                  className="btn btn-fern"
-                  style={{ borderRadius: '999px', padding: '10px 24px', fontSize: '0.92rem', fontWeight: 700, whiteSpace: 'nowrap' }}
+                  style={{
+                    background: 'linear-gradient(135deg, #0F4C2C 0%, #1C331C 100%)',
+                    border: '1.5px solid #D4AF37',
+                    color: '#FFFFFF',
+                    borderRadius: '999px',
+                    padding: '11px 26px',
+                    fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif",
+                    fontSize: '0.86rem',
+                    fontWeight: 800,
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase',
+                    whiteSpace: 'nowrap',
+                    cursor: 'pointer',
+                    boxShadow: '0 6px 20px rgba(15, 76, 44, 0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}
                 >
-                  <User size={16} />
+                  <User size={16} style={{ color: '#F7D358' }} />
                   {user.name.split(' ')[0]}
                 </button>
                 <button
@@ -106,8 +126,8 @@ const Navbar = () => {
                     border: '1px solid #FCA5A5',
                     color: '#DC2626',
                     borderRadius: '50%',
-                    width: '36px',
-                    height: '36px',
+                    width: '38px',
+                    height: '38px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -121,15 +141,30 @@ const Navbar = () => {
             ) : (
               <button
                 onClick={() => navigateTo('contact')}
-                className="btn btn-fern"
                 style={{
+                  background: 'linear-gradient(135deg, #0F4C2C 0%, #1C331C 100%)',
+                  border: '1.5px solid #D4AF37',
+                  color: '#FFFFFF',
                   borderRadius: '999px',
-                  padding: '10px 28px',
-                  fontSize: '0.92rem',
-                  fontWeight: 700,
-                  boxShadow: '0 4px 16px rgba(118, 163, 118, 0.35)',
+                  padding: '11px 30px',
+                  fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif",
+                  fontSize: '0.86rem',
+                  fontWeight: 800,
+                  letterSpacing: '1.2px',
+                  textTransform: 'uppercase',
+                  boxShadow: '0 6px 20px rgba(15, 76, 44, 0.3)',
                   whiteSpace: 'nowrap',
-                  flexShrink: 0
+                  flexShrink: 0,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.35)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(15, 76, 44, 0.3)';
                 }}
               >
                 Contact
@@ -142,21 +177,24 @@ const Navbar = () => {
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#1C331C',
+                color: '#234223',
+                fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif",
+                fontSize: '0.86rem',
+                fontWeight: 800,
+                letterSpacing: '0.8px',
+                textTransform: 'uppercase',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '4px',
-                fontSize: '0.9rem',
-                fontWeight: 700,
+                gap: '6px',
                 whiteSpace: 'nowrap',
                 flexShrink: 0,
                 transition: 'color 0.2s ease'
               }}
-              onMouseEnter={e => e.currentTarget.style.color = '#76A376'}
-              onMouseLeave={e => e.currentTarget.style.color = '#1C331C'}
+              onMouseEnter={e => e.currentTarget.style.color = '#0F4C2C'}
+              onMouseLeave={e => e.currentTarget.style.color = '#234223'}
             >
-              <ShieldCheck size={16} />
+              <ShieldCheck size={16} style={{ color: '#0F4C2C' }} />
               {isAdmin ? 'Admin' : 'Login'}
             </button>
           </div>
