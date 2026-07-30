@@ -81,62 +81,107 @@ const AboutView = () => {
               {
                 icon: <Trophy size={28} style={{ color: '#0F4C2C' }} />,
                 title: '1. Tournament & League Publishing',
-                desc: 'End-to-end digital event hosting for T20 Cricket Leagues, State Kabaddi Clashes, Football Invitational Cups, National Marathons, Badminton & Esports. Complete with rules, prize pools, and schedules.'
+                desc: 'End-to-end digital event hosting for T20 Cricket Leagues, State Kabaddi Clashes, Football Invitational Cups, National Marathons, Badminton & Esports. Complete with rules, prize pools, and schedules.',
+                image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?auto=format&fit=crop&w=800&q=80'
               },
               {
                 icon: <Ticket size={28} style={{ color: '#0F4C2C' }} />,
                 title: '2. Real-Time Registration Engine',
-                desc: 'Automated player registration pipeline supporting individual athletes, team entries, category selection, age verification, emergency contact collection, and instant receipt generation.'
+                desc: 'Automated player registration pipeline supporting individual athletes, team entries, category selection, age verification, emergency contact collection, and instant receipt generation.',
+                image: 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=800&q=80'
               },
               {
                 icon: <Smartphone size={28} style={{ color: '#0F4C2C' }} />,
                 title: '3. QR Code Digital Gate Passes',
-                desc: 'Zero-paperwork entry pass system. Every registered athlete gets a verified digital E-Pass with a scannable QR code for instant venue access and barcode check-in at official stadium gates.'
+                desc: 'Zero-paperwork entry pass system. Every registered athlete gets a verified digital E-Pass with a scannable QR code for instant venue access and barcode check-in at official stadium gates.',
+                image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1556742049-0a67daf4005a?auto=format&fit=crop&w=800&q=80'
               },
               {
                 icon: <BarChart3 size={28} style={{ color: '#0F4C2C' }} />,
                 title: '4. Organizer Financial Dashboard',
-                desc: 'Transparent pricing plans for organizers — Basic (100 free passes), Pay-Per-Event (0% ticket commission), and Pay-Per-Ticket (zero upfront cost). Includes revenue tracking and payouts.'
+                desc: 'Transparent pricing plans for organizers — Basic (100 free passes), Pay-Per-Event (0% ticket commission), and Pay-Per-Ticket (zero upfront cost). Includes revenue tracking and payouts.',
+                image: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80'
               },
               {
                 icon: <Award size={28} style={{ color: '#0F4C2C' }} />,
                 title: '5. Hall of Champions & Leaderboards',
-                desc: 'Verified archiving of championship winners, runner-ups, gold medalists, tournament MVP awards, and official digitized certificates of participation for all competing athletes.'
+                desc: 'Verified archiving of championship winners, runner-ups, gold medalists, tournament MVP awards, and official digitized certificates of participation for all competing athletes.',
+                image: 'https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80'
               },
               {
                 icon: <Lock size={28} style={{ color: '#0F4C2C' }} />,
                 title: '6. Verified Player & Organizer Badges',
-                desc: 'Bank-grade identity verification ensuring genuine organizers, authentic player rosters, anti-fraud ticketing protection, and 100% secure Razorpay payment gateway integration.'
+                desc: 'Bank-grade identity verification ensuring genuine organizers, authentic player rosters, anti-fraud ticketing protection, and 100% secure Razorpay payment gateway integration.',
+                image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80',
+                fallback: 'https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=800&q=80'
               }
             ].map((service, idx) => (
               <div key={idx} className="glass-card" style={{
-                padding: '32px',
-                background: '#FFFFFF',
-                borderRadius: '16px',
-                border: '1px solid rgba(118, 163, 118, 0.25)',
+                padding: '32px 28px',
+                background: '#051A0E',
+                borderRadius: '20px',
+                border: '2px solid #76A376',
+                position: 'relative',
+                overflow: 'hidden',
+                minHeight: '280px',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '16px'
+                justifyContent: 'flex-end',
+                boxShadow: '0 10px 30px rgba(28, 51, 28, 0.15)'
               }}>
+                {/* Background Sports Image */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  onError={e => { e.target.onerror = null; e.target.src = service.fallback; }}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    zIndex: 0,
+                    transition: 'transform 0.6s ease'
+                  }}
+                />
+
+                {/* Dark Fern Glass Overlay */}
                 <div style={{
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '14px',
-                  background: '#F2F7F2',
-                  border: '1.5px solid #76A376',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  {service.icon}
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(15,41,27,0.7) 0%, rgba(15,41,27,0.94) 100%)',
+                  zIndex: 1
+                }} />
+
+                {/* Content Details */}
+                <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <div style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '14px',
+                    background: '#FFFFFF',
+                    border: '2px solid #D4AF37',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                    marginBottom: '4px'
+                  }}>
+                    {service.icon}
+                  </div>
+                  <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.35rem', color: '#FFFFFF', lineHeight: 1.3, fontWeight: 800, textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                    {service.title}
+                  </h3>
+                  <p style={{ color: '#EAF2EA', fontSize: '0.94rem', lineHeight: 1.6, margin: 0, textShadow: '0 1px 6px rgba(0,0,0,0.8)', fontFamily: 'Poppins, sans-serif' }}>
+                    {service.desc}
+                  </p>
                 </div>
-                <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.3rem', color: '#0F4C2C', lineHeight: 1.3 }}>
-                  {service.title}
-                </h3>
-                <p style={{ color: '#4A6053', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                  {service.desc}
-                </p>
               </div>
             ))}
           </div>
