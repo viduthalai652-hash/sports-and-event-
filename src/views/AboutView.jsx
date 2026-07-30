@@ -114,18 +114,14 @@ const GALLERY_ITEMS = [
 ];
 
 const AboutView = () => {
-  const { navigateTo } = useApp();
+  const appContext = useApp() || {};
+  const navigateTo = appContext.navigateTo || (() => {});
+  
   const [workflowIndex, setWorkflowIndex] = useState(0);
   const [isWorkflowAutoPlaying, setIsWorkflowAutoPlaying] = useState(true);
-
-  // Expanded card state in Services section
   const [expandedService, setExpandedService] = useState(null);
-
-  // Champions Gallery state
   const [selectedGalleryCategory, setSelectedGalleryCategory] = useState('All');
   const [activeLightboxIdx, setActiveLightboxIdx] = useState(null);
-
-  // FAQ Accordion state
   const [openFaqIdx, setOpenFaqIdx] = useState(0);
 
   // Auto-slide workflow steps interval
@@ -136,6 +132,14 @@ const AboutView = () => {
     }, 3600);
     return () => clearInterval(interval);
   }, [isWorkflowAutoPlaying]);
+
+  const handleNextWorkflow = () => {
+    setWorkflowIndex(prev => (prev + 1) % WORKFLOW_STEPS.length);
+  };
+
+  const handlePrevWorkflow = () => {
+    setWorkflowIndex(prev => (prev - 1 + WORKFLOW_STEPS.length) % WORKFLOW_STEPS.length);
+  };
 
   const filteredGallery = GALLERY_ITEMS.filter(item => {
     if (selectedGalleryCategory !== 'All' && item.sport !== selectedGalleryCategory) return false;
@@ -339,14 +343,6 @@ const AboutView = () => {
                   border: '1.5px solid rgba(118, 163, 118, 0.3)',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.boxShadow = '0 15px 35px rgba(15, 76, 44, 0.12)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(28, 51, 28, 0.07)';
-                }}
               >
                 <div style={{
                   width: '50px',
@@ -442,7 +438,6 @@ const AboutView = () => {
                   boxShadow: '0 12px 30px rgba(0,0,0,0.1)'
                 }}
               >
-                {/* Topic-Matched Sports Background Image */}
                 <img
                   src={service.bgImage}
                   alt={service.title}
@@ -456,7 +451,6 @@ const AboutView = () => {
                   }}
                 />
 
-                {/* Dark Fern Glass Overlay */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
@@ -464,7 +458,6 @@ const AboutView = () => {
                   zIndex: 1
                 }} />
 
-                {/* Card Content */}
                 <div style={{ position: 'relative', zIndex: 10, color: '#FFFFFF' }}>
                   <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.25rem', color: '#FFFFFF', marginBottom: '8px', fontWeight: 800 }}>
                     {service.title}
@@ -473,7 +466,6 @@ const AboutView = () => {
                     {service.desc}
                   </p>
 
-                  {/* Expandable Details Drawer */}
                   {expandedService === idx && (
                     <div style={{
                       background: 'rgba(255, 255, 255, 0.95)',
@@ -560,7 +552,7 @@ const AboutView = () => {
           </div>
         </div>
 
-        {/* 6. ATHLETE JOURNEY & 3D WORKFLOW PIPELINE (PRESERVED & ENHANCED) */}
+        {/* 6. ATHLETE JOURNEY & WORKFLOW PIPELINE (PRESERVED & ENHANCED) */}
         <div style={{ marginBottom: '70px' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <span className="badge-gold" style={{ marginBottom: '12px' }}>INTERACTIVE WORKFLOW PIPELINE</span>
@@ -596,107 +588,68 @@ const AboutView = () => {
             ))}
           </div>
 
-          {/* 3D Sliding Card Carousel */}
-          <div style={{
-            position: 'relative',
-            minHeight: '380px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            perspective: '1000px'
-          }}>
-            {WORKFLOW_STEPS.map((step, idx) => {
-              const StepIcon = step.icon;
-              const total = WORKFLOW_STEPS.length;
-              let offset = (idx - workflowIndex + total) % total;
-              if (offset > total / 2) offset -= total;
-
-              const isCurrent = offset === 0;
-
-              return (
-                <div
-                  key={idx}
-                  style={{
-                    position: 'absolute',
-                    width: '100%',
-                    maxWidth: '840px',
-                    background: '#FFFFFF',
-                    borderRadius: '24px',
-                    overflow: 'hidden',
-                    boxShadow: isCurrent ? '0 25px 50px rgba(15, 76, 44, 0.2)' : '0 10px 25px rgba(0,0,0,0.06)',
-                    border: isCurrent ? '2px solid #D4AF37' : '1px solid rgba(118, 163, 118, 0.3)',
-                    transform: `translateX(${offset * 40}px) scale(${1 - Math.abs(offset) * 0.08}) rotateY(${offset * -5}deg)`,
-                    zIndex: 10 - Math.abs(offset),
-                    opacity: Math.abs(offset) > 1 ? 0 : 1 - Math.abs(offset) * 0.4,
-                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                    pointerEvents: isCurrent ? 'auto' : 'none'
-                  }}
-                >
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-                    <div style={{ position: 'relative', minHeight: '260px' }}>
-                      <img src={step.image} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                    <div style={{ padding: '36px 30px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                        <StepIcon size={20} style={{ color: '#0F4C2C' }} />
-                        <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#B88E14', letterSpacing: '1px' }}>{step.tag}</span>
-                      </div>
-                      <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.6rem', color: '#0F4C2C', fontWeight: 900, marginBottom: '12px' }}>
-                        {step.title}
-                      </h3>
-                      <p style={{ color: '#4A6053', fontSize: '0.94rem', lineHeight: 1.6, fontFamily: 'Poppins, sans-serif' }}>
-                        {step.desc}
-                      </p>
-                    </div>
+          {/* Workflow Active Step Display */}
+          {WORKFLOW_STEPS[workflowIndex] && (
+            <div style={{
+              background: '#FFFFFF',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0 15px 35px rgba(15, 76, 44, 0.12)',
+              border: '2px solid #D4AF37',
+              maxWidth: '880px',
+              margin: '0 auto'
+            }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+                <div style={{ position: 'relative', minHeight: '260px' }}>
+                  <img src={WORKFLOW_STEPS[workflowIndex].image} alt={WORKFLOW_STEPS[workflowIndex].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ padding: '36px 30px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#B88E14', letterSpacing: '1px', marginBottom: '10px' }}>
+                    {WORKFLOW_STEPS[workflowIndex].tag}
+                  </div>
+                  <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.6rem', color: '#0F4C2C', fontWeight: 900, marginBottom: '12px' }}>
+                    {WORKFLOW_STEPS[workflowIndex].title}
+                  </h3>
+                  <p style={{ color: '#4A6053', fontSize: '0.94rem', lineHeight: 1.6, fontFamily: 'Poppins, sans-serif', marginBottom: '20px' }}>
+                    {WORKFLOW_STEPS[workflowIndex].desc}
+                  </p>
+                  
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    <button
+                      onClick={handlePrevWorkflow}
+                      style={{
+                        background: '#F4F7F4',
+                        border: '1px solid #0F4C2C',
+                        borderRadius: '999px',
+                        padding: '8px 18px',
+                        cursor: 'pointer',
+                        color: '#0F4C2C',
+                        fontWeight: 700,
+                        fontSize: '0.85rem'
+                      }}
+                    >
+                      ← Previous
+                    </button>
+                    <button
+                      onClick={handleNextWorkflow}
+                      style={{
+                        background: 'linear-gradient(135deg, #0F4C2C, #1C331C)',
+                        border: 'none',
+                        borderRadius: '999px',
+                        padding: '8px 20px',
+                        cursor: 'pointer',
+                        color: '#FFFFFF',
+                        fontWeight: 700,
+                        fontSize: '0.85rem'
+                      }}
+                    >
+                      Next Step →
+                    </button>
                   </div>
                 </div>
-              );
-            })}
-
-            {/* Nav Arrows */}
-            <button
-              onClick={handlePrevWorkflow}
-              style={{
-                position: 'absolute',
-                left: '0px',
-                zIndex: 20,
-                background: '#FFFFFF',
-                border: '1.5px solid #0F4C2C',
-                borderRadius: '50%',
-                width: '44px',
-                height: '44px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                color: '#0F4C2C',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
-              }}
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              onClick={handleNextWorkflow}
-              style={{
-                position: 'absolute',
-                right: '0px',
-                zIndex: 20,
-                background: '#FFFFFF',
-                border: '1.5px solid #0F4C2C',
-                borderRadius: '50%',
-                width: '44px',
-                height: '44px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                color: '#0F4C2C',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
-              }}
-            >
-              <ChevronRight size={22} />
-            </button>
-          </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 7. CHAMPIONS GALLERY (NEW SECTION) */}
@@ -987,12 +940,12 @@ const AboutView = () => {
       </div>
 
       {/* Lightbox Rendering */}
-      {activeLightboxIdx !== null && filteredGallery[activeLightboxIdx] && (
+      {activeLightboxIdx !== null && filteredGallery && filteredGallery[activeLightboxIdx] && (
         <ChampionsGalleryLightbox
           item={filteredGallery[activeLightboxIdx]}
           onClose={() => setActiveLightboxIdx(null)}
-          onNext={() => setActiveLightboxIdx((activeLightboxIdx + 1) % (filteredGallery.length || 1))}
-          onPrev={() => setActiveLightboxIdx((activeLightboxIdx - 1 + (filteredGallery.length || 1)) % (filteredGallery.length || 1))}
+          onNext={() => setActiveLightboxIdx((prev) => (prev + 1) % (filteredGallery.length || 1))}
+          onPrev={() => setActiveLightboxIdx((prev) => (prev - 1 + (filteredGallery.length || 1)) % (filteredGallery.length || 1))}
         />
       )}
 
