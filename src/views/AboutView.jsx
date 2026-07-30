@@ -68,21 +68,76 @@ const AboutView = () => {
     <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
-        {/* 1. HERO PLATFORM BANNER */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-            <Logo size="lg" />
+        {/* 1. HERO PLATFORM BANNER WITH SPORTS BANNER BACKGROUND */}
+        <div style={{
+          position: 'relative',
+          borderRadius: '24px',
+          padding: '60px 32px 50px',
+          marginBottom: '60px',
+          textAlign: 'center',
+          background: '#FFFFFF',
+          border: '2px solid #76A376',
+          boxShadow: '0 12px 35px rgba(28, 51, 28, 0.08)',
+          overflow: 'hidden'
+        }}>
+          {/* Background Sports Banner Image */}
+          <img
+            src="/sports-banner.png"
+            alt="Sports Action Banner"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              zIndex: 0,
+              opacity: 0.55
+            }}
+          />
+
+          {/* Soft Glass Tint Gradient Overlay */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(234,245,235,0.72) 50%, rgba(255,255,255,0.92) 100%)',
+            zIndex: 1
+          }} />
+
+          {/* Banner Hero Text Content */}
+          <div style={{ position: 'relative', zIndex: 10, maxWidth: '880px', margin: '0 auto' }}>
+            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+              <Logo size="lg" />
+            </div>
+            <div className="badge-gold animate-pulse-gold" style={{ marginBottom: '16px', display: 'inline-flex', padding: '6px 18px', fontSize: '0.85rem' }}>
+              <Sparkles size={14} />
+              INDIA'S PREMIER SPORTS & EVENT ECOSYSTEM
+            </div>
+            <h1 style={{
+              fontFamily: 'Cinzel, serif',
+              fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
+              color: '#0F4C2C',
+              fontWeight: 900,
+              lineHeight: 1.25,
+              marginBottom: '20px',
+              textShadow: '0 2px 10px rgba(255,255,255,0.9), 0 1px 4px rgba(15,76,44,0.15)'
+            }}>
+              Empowering Champions & <br />
+              <span style={{ color: '#1C331C', textShadow: '0 2px 8px rgba(247,211,88,0.4)' }}>Elevating Indian Sports Management</span>
+            </h1>
+            <p style={{
+              color: '#3D5A3D',
+              fontSize: '1.05rem',
+              maxWidth: '840px',
+              margin: '0 auto',
+              lineHeight: 1.7,
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 500,
+              textShadow: '0 1px 4px rgba(255,255,255,0.95)'
+            }}>
+              <strong>SRV – THE WINNING EDGE</strong> is India’s all-in-one digital sports platform designed to connect athletes, organizers, sports academies, and fans. We streamline sports event management with real-time registrations, instant QR digital passes, verified leaderboard rankings, and transparent organizer economics.
+            </p>
           </div>
-          <div className="badge-gold animate-pulse-gold" style={{ marginBottom: '16px', display: 'inline-flex' }}>
-            <Sparkles size={14} />
-            INDIA'S PREMIER SPORTS & EVENT ECOSYSTEM
-          </div>
-          <h1 style={{ fontFamily: 'Cinzel, serif', fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#0F4C2C', marginBottom: '20px', lineHeight: 1.2 }}>
-            Empowering Champions & Elevating Indian Sports Management
-          </h1>
-          <p style={{ color: '#4A6053', fontSize: '1.1rem', maxWidth: '840px', margin: '0 auto', lineHeight: 1.7, fontFamily: 'Poppins, sans-serif' }}>
-            <strong>SRV – THE WINNING EDGE</strong> is India’s all-in-one digital sports platform designed to connect athletes, organizers, sports academies, and fans. We streamline sports event management with real-time registrations, instant QR digital passes, verified leaderboard rankings, and transparent organizer economics.
-          </p>
         </div>
 
         {/* 2. PLATFORM IMPACT STATS */}

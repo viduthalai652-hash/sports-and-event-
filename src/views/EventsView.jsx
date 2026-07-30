@@ -44,15 +44,75 @@ const EventsView = () => {
     <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
-        {/* Page Header */}
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <span className="badge-gold" style={{ marginBottom: '12px' }}>EXPLORE COMPETITIONS</span>
-          <h1 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.5rem', color: '#0F4C2C' }}>
-            Sports Events & Tournaments
-          </h1>
-          <p style={{ color: '#4A6053', fontSize: '0.95rem', maxWidth: '600px', margin: '8px auto 0' }}>
-            Browse verified national marathons, T20 cricket cups, state athletic meets, and pro tournaments.
-          </p>
+        {/* Page Hero Header with Sports Banner Background */}
+        <div style={{
+          position: 'relative',
+          borderRadius: '24px',
+          padding: '60px 32px 50px',
+          marginBottom: '40px',
+          textAlign: 'center',
+          background: '#FFFFFF',
+          border: '2px solid #76A376',
+          boxShadow: '0 12px 35px rgba(28, 51, 28, 0.08)',
+          overflow: 'hidden'
+        }}>
+          {/* Background Sports Banner Image */}
+          <img
+            src="/sports-banner.png"
+            alt="Sports Action Banner"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              zIndex: 0,
+              opacity: 0.55
+            }}
+          />
+
+          {/* Soft Glass Tint Gradient Overlay for Pristine Contrast */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(234,245,235,0.72) 50%, rgba(255,255,255,0.92) 100%)',
+            zIndex: 1
+          }} />
+
+          {/* Banner Hero Text Content */}
+          <div style={{ position: 'relative', zIndex: 10, maxWidth: '880px', margin: '0 auto' }}>
+            <span className="badge-gold animate-pulse-gold" style={{ marginBottom: '16px', display: 'inline-flex', padding: '6px 18px', fontSize: '0.85rem' }}>
+              <Trophy size={14} />
+              EXPLORE ALL VERIFIED COMPETITIONS
+            </span>
+            
+            <h1 style={{
+              fontFamily: 'Cinzel, serif',
+              fontSize: 'clamp(2.0rem, 4vw, 3.2rem)',
+              color: '#0F4C2C',
+              fontWeight: 900,
+              lineHeight: 1.25,
+              marginBottom: '16px',
+              textShadow: '0 2px 10px rgba(255,255,255,0.9), 0 1px 4px rgba(15,76,44,0.15)'
+            }}>
+              Empowering Champions & <br />
+              <span style={{ color: '#1C331C', textShadow: '0 2px 8px rgba(247,211,88,0.4)' }}>Elevating Indian Sports Management</span>
+            </h1>
+            
+            <p style={{
+              color: '#3D5A3D',
+              fontSize: '1.05rem',
+              maxWidth: '720px',
+              margin: '0 auto',
+              lineHeight: 1.6,
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 500,
+              textShadow: '0 1px 4px rgba(255,255,255,0.95)'
+            }}>
+              Browse verified national marathons, T20 cricket cups, state athletic meets, football leagues, and pro championships with real-time registrations and instant QR digital gate passes.
+            </p>
+          </div>
         </div>
 
         {/* Search & Multi-Filter Control Panel */}
