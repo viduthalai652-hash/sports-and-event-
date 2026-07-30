@@ -180,8 +180,8 @@ const HomeView = () => {
                 onClick={() => navigateTo('events')}
                 className="btn btn-gold"
                 style={{
-                  padding: '16px 36px',
-                  fontSize: '1.1rem',
+                  padding: '16px 40px',
+                  fontSize: '1.15rem',
                   fontWeight: 900,
                   borderRadius: '999px',
                   fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
@@ -190,42 +190,6 @@ const HomeView = () => {
                 }}
               >
                 EXPLORE OUR EVENTS →
-              </button>
-              <button
-                onClick={() => navigateTo('events')}
-                className="btn btn-outline-white"
-                style={{
-                  padding: '16px 32px',
-                  fontSize: '1.1rem',
-                  fontWeight: 900,
-                  borderRadius: '999px',
-                  border: '2px solid #FFFFFF',
-                  color: '#FFFFFF',
-                  background: 'rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(8px)',
-                  fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
-                  letterSpacing: '1.5px'
-                }}
-              >
-                REGISTER NOW
-              </button>
-              <button
-                onClick={() => navigateTo('contact')}
-                className="btn btn-outline-white"
-                style={{
-                  padding: '16px 32px',
-                  fontSize: '1.1rem',
-                  fontWeight: 900,
-                  borderRadius: '999px',
-                  border: '2px solid #D4AF37',
-                  color: '#F7D358',
-                  background: 'rgba(15,76,44,0.4)',
-                  backdropFilter: 'blur(8px)',
-                  fontFamily: "'Barlow Condensed', 'Teko', 'Rajdhani', sans-serif",
-                  letterSpacing: '1.5px'
-                }}
-              >
-                PARTNER WITH US
               </button>
             </div>
 
