@@ -17,6 +17,61 @@ import AboutView from './views/AboutView';
 import ContactView from './views/ContactView';
 import AdminDashboardView from './views/AdminDashboardView';
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("SRV App ErrorBoundary caught an error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{
+          padding: '60px 24px',
+          textAlign: 'center',
+          minHeight: '60vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: '#F8FAF8'
+        }}>
+          <h2 style={{ fontFamily: 'Cinzel, serif', color: '#0F4C2C', fontSize: '2rem', marginBottom: '12px' }}>
+            SRV Platform View Updated
+          </h2>
+          <p style={{ color: '#4A6053', marginBottom: '20px', maxWidth: '500px' }}>
+            We've just pushed a live system update. Please reload the page to sync the latest version.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              background: 'linear-gradient(135deg, #0F4C2C, #1C331C)',
+              color: '#F7D358',
+              border: 'none',
+              borderRadius: '999px',
+              padding: '12px 30px',
+              fontWeight: 800,
+              cursor: 'pointer',
+              boxShadow: '0 6px 20px rgba(15,76,44,0.25)'
+            }}
+          >
+            Reload SRV Platform
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 const MainAppContent = () => {
   const { currentView, activeModal } = useApp();
 
@@ -46,10 +101,12 @@ const MainAppContent = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#051A0E' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#F8FAF8' }}>
       <Navbar />
       <main style={{ flex: 1 }}>
-        {renderView()}
+        <ErrorBoundary key={currentView}>
+          {renderView()}
+        </ErrorBoundary>
       </main>
       <Footer />
 
