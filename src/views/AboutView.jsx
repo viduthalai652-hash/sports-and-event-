@@ -68,20 +68,21 @@ const AboutView = () => {
     <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
-        {/* 1. HERO PLATFORM BANNER WITH VIVID SPORTS BANNER BACKGROUND (NO BOX) */}
+        {/* 1. HERO PLATFORM BANNER WITH FULL-BLEED 100% VIVID SIDEWIDES SPORTS BANNER BACKGROUND */}
         <div style={{
           position: 'relative',
-          padding: '50px 20px 40px',
+          width: '100%',
+          padding: '60px 24px 50px',
           marginBottom: '50px',
           textAlign: 'center',
           overflow: 'hidden',
-          width: '100%',
-          minHeight: '280px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          minHeight: '320px',
+          borderRadius: '24px'
         }}>
-          {/* Vivid Background Sports Banner Image (100% Visible) */}
+          {/* Full-Width Sidewides 100% Vivid Background Sports Banner Image */}
           <img
             src="/sports-banner.png"
             alt="Sports Action Banner"
@@ -90,52 +91,52 @@ const AboutView = () => {
               inset: 0,
               width: '100%',
               height: '100%',
-              objectFit: 'contain',
+              objectFit: 'cover',
               objectPosition: 'center',
               zIndex: 0,
               opacity: 1
             }}
           />
 
-          {/* Soft Center Backlight Tint */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(ellipse at center, rgba(244,247,244,0.92) 0%, rgba(244,247,244,0.75) 55%, rgba(244,247,244,0.2) 85%, rgba(244,247,244,0) 100%)',
-            zIndex: 1,
-            pointerEvents: 'none'
-          }} />
-
-          {/* Banner Hero Text Content */}
-          <div style={{ position: 'relative', zIndex: 10, maxWidth: '920px', margin: '0 auto', padding: '0 16px' }}>
+          {/* Banner Hero Text Content with Ultra-Crisp White Backlight Text-Shadows */}
+          <div style={{ position: 'relative', zIndex: 10, maxWidth: '960px', margin: '0 auto' }}>
             <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
               <Logo size="lg" />
             </div>
-            <div className="badge-gold animate-pulse-gold" style={{ marginBottom: '16px', display: 'inline-flex', padding: '6px 18px', fontSize: '0.85rem', background: '#FFFFFF', border: '1.5px solid #D4AF37', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-              <Sparkles size={14} style={{ color: '#B88E14' }} />
+            <div className="badge-gold animate-pulse-gold" style={{
+              marginBottom: '18px',
+              display: 'inline-flex',
+              padding: '8px 22px',
+              fontSize: '0.88rem',
+              background: 'rgba(255, 255, 255, 0.95)',
+              border: '2px solid #D4AF37',
+              boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+              fontWeight: 800
+            }}>
+              <Sparkles size={16} style={{ color: '#B88E14' }} />
               INDIA'S PREMIER SPORTS & EVENT ECOSYSTEM
             </div>
             <h1 style={{
               fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)',
+              fontSize: 'clamp(2.3rem, 4.8vw, 3.6rem)',
               color: '#0F4C2C',
               fontWeight: 900,
               lineHeight: 1.2,
               marginBottom: '20px',
-              textShadow: '0 2px 14px rgba(255,255,255,1), 0 0 24px rgba(255,255,255,0.9), 0 2px 4px rgba(0,0,0,0.2)'
+              textShadow: '0 0 20px #FFFFFF, 0 0 35px #FFFFFF, 0 3px 12px rgba(255,255,255,1), 0 2px 4px rgba(0,0,0,0.6)'
             }}>
               Empowering Champions & <br />
-              <span style={{ color: '#1C331C', textShadow: '0 2px 14px rgba(255,255,255,1), 0 0 20px rgba(247,211,88,0.5)' }}>Elevating Indian Sports Management</span>
+              <span style={{ color: '#1C331C', textShadow: '0 0 20px #FFFFFF, 0 0 35px #FFFFFF, 0 3px 12px rgba(255,255,255,1), 0 2px 4px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
             </h1>
             <p style={{
-              color: '#1C331C',
-              fontSize: '1.08rem',
+              color: '#0F4C2C',
+              fontSize: '1.12rem',
               maxWidth: '840px',
               margin: '0 auto',
               lineHeight: 1.7,
               fontFamily: 'Poppins, sans-serif',
-              fontWeight: 600,
-              textShadow: '0 2px 10px rgba(255,255,255,1), 0 1px 3px rgba(255,255,255,0.9)'
+              fontWeight: 700,
+              textShadow: '0 0 16px #FFFFFF, 0 0 25px #FFFFFF, 0 2px 8px rgba(255,255,255,1), 0 1px 3px rgba(0,0,0,0.5)'
             }}>
               <strong>SRV – THE WINNING EDGE</strong> is India’s all-in-one digital sports platform designed to connect athletes, organizers, sports academies, and fans. We streamline sports event management with real-time registrations, instant QR digital passes, verified leaderboard rankings, and transparent organizer economics.
             </p>
