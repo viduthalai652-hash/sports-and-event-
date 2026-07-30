@@ -65,16 +65,16 @@ const AboutView = () => {
   };
 
   return (
-    <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F8FAF8' }}>
+    <div style={{ paddingTop: '0px', paddingBottom: '60px', minHeight: '85vh', background: '#F8FAF8' }}>
       {/* 1. HERO PLATFORM BANNER WITH FULL-BLEED 100VW BACKGROUND (0px Upper Gap, 0px Side Gaps) */}
       <div style={{
         position: 'relative',
         width: '100vw',
         marginLeft: 'calc(-50vw + 50%)',
         marginRight: 'calc(-50vw + 50%)',
-        marginTop: '-60px',
+        marginTop: '0px',
         marginBottom: '50px',
-        padding: '75px 24px 65px',
+        padding: '65px 24px 55px',
         textAlign: 'center',
         overflow: 'hidden',
         display: 'flex',

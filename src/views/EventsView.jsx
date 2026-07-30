@@ -134,7 +134,7 @@ const EventsView = () => {
   };
 
   return (
-    <div style={{ paddingBottom: '60px', minHeight: '85vh', background: '#F8FAF8' }}>
+    <div style={{ paddingTop: '0px', paddingBottom: '60px', minHeight: '85vh', background: '#F8FAF8' }}>
       
       {/* 1. HERO BANNER SECTION (Compact ~240px Height) */}
       <div style={{
@@ -142,9 +142,9 @@ const EventsView = () => {
         width: '100vw',
         marginLeft: 'calc(-50vw + 50%)',
         marginRight: 'calc(-50vw + 50%)',
-        marginTop: '-60px',
+        marginTop: '0px',
         marginBottom: '0px',
-        padding: '50px 24px 45px',
+        padding: '48px 24px 40px',
         textAlign: 'center',
         overflow: 'hidden',
         display: 'flex',

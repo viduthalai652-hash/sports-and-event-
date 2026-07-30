@@ -18,7 +18,8 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-300" style={{
+    <header className="sticky top-0 transition-all duration-300" style={{
+      zIndex: 100,
       background: '#F8FAF8',
       borderBottom: '1px solid rgba(118, 163, 118, 0.18)',
       boxShadow: '0 2px 12px rgba(28, 51, 28, 0.04)'
