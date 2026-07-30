@@ -314,7 +314,7 @@ const NotificationsView = () => {
         </div>
       </div>
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: '1536px', margin: '0 auto', padding: '0 24px' }}>
 
         {/* 3. LIVE NOTIFICATION COUNTER STAT CARDS */}
         <div style={{
@@ -547,8 +547,8 @@ const NotificationsView = () => {
           alignItems: 'flex-start'
         }}>
           
-          {/* LEFT: REDESIGNED NOTIFICATION CARDS LIST */}
-          <div style={{ flex: '1 1 600px', display: 'flex', flexDirection: 'column', gap: '20px', minWidth: 0 }}>
+          {/* LEFT: REDESIGNED NOTIFICATION CARDS GRID */}
+          <div style={{ flex: '1 1 720px', minWidth: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '20px' }}>
             
             {filteredNotifications.length === 0 ? (
               <div style={{
@@ -781,7 +781,7 @@ const NotificationsView = () => {
           </div>
 
           {/* RIGHT SIDEBAR: LIVE ACTIVITY STREAM & POPULAR TOPICS */}
-          <div style={{ flex: '0 0 340px', maxWidth: '100%', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ flex: '0 0 340px', maxWidth: '100%', display: 'flex', flexDirection: 'column', gap: '24px', position: 'sticky', top: '90px' }}>
             
             {/* Live Activity Stream Panel */}
             <div style={{
