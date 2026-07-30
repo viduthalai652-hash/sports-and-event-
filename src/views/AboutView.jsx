@@ -124,24 +124,12 @@ const AboutView = () => {
               color: '#0F4C2C',
               fontWeight: 900,
               lineHeight: 1.2,
-              marginBottom: '20px',
+              marginBottom: '0',
               textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)'
             }}>
               Empowering Champions & <br />
               <span style={{ color: '#1C331C', textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
             </h1>
-            <p style={{
-              color: '#0F4C2C',
-              fontSize: '1.12rem',
-              maxWidth: '840px',
-              margin: '0 auto',
-              lineHeight: 1.7,
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
-              textShadow: '0 0 18px #FFFFFF, 0 0 28px #FFFFFF, 0 2px 10px rgba(255,255,255,1), 0 1px 4px rgba(0,0,0,0.5)'
-            }}>
-              <strong>SRV – THE WINNING EDGE</strong> is India’s all-in-one digital sports platform designed to connect athletes, organizers, sports academies, and fans. We streamline sports event management with real-time registrations, instant QR digital passes, verified leaderboard rankings, and transparent organizer economics.
-            </p>
           </div>
         </div>
 
