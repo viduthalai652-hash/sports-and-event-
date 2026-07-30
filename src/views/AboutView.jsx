@@ -1,14 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import Logo from '../components/Logo';
 import { 
   ShieldCheck, Award, Zap, Users, Globe, Target, Eye, Flame, CheckCircle2, 
   Calendar, Ticket, Trophy, Smartphone, BarChart3, HelpCircle, ArrowRight, 
-  Sparkles, Clock, Lock, Cpu, Layers
+  Sparkles, Clock, Lock, Cpu, Layers, ChevronLeft, ChevronRight, Pause, PlayCircle, FileText
 } from 'lucide-react';
+
+const WORKFLOW_STEPS = [
+  {
+    step: '01',
+    title: 'Explore & Filter Events',
+    desc: 'Browse state and national tournaments filtered by Sport, City, Prize Pool, and Date. Search 50+ athletic competitions across India.',
+    icon: Globe,
+    image: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80',
+    tag: 'STEP 1: DISCOVERY'
+  },
+  {
+    step: '02',
+    title: 'Review Details & Rules',
+    desc: 'Inspect full venue locations, reporting timings, official eligibility criteria, weight categories, and championship prize pools.',
+    icon: FileText,
+    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80',
+    tag: 'STEP 2: ELIGIBILITY'
+  },
+  {
+    step: '03',
+    title: 'Instant Registration',
+    desc: 'Submit athlete info, roster choices, emergency contact details, and receive instant digital confirmation receipts.',
+    icon: Zap,
+    image: 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=800&q=80',
+    tag: 'STEP 3: CHECKOUT'
+  },
+  {
+    step: '04',
+    title: 'Scan E-Pass & Compete',
+    desc: 'Present your verified digital E-Pass with scannable QR code at official stadium gate check-ins and compete for glory.',
+    icon: Ticket,
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+    tag: 'STEP 4: ARENA ENTRY'
+  }
+];
 
 const AboutView = () => {
   const { navigateTo } = useApp();
+  const [workflowIndex, setWorkflowIndex] = useState(0);
+  const [isWorkflowAutoPlaying, setIsWorkflowAutoPlaying] = useState(true);
+
+  // Auto-slide workflow steps interval
+  useEffect(() => {
+    if (!isWorkflowAutoPlaying) return;
+    const interval = setInterval(() => {
+      setWorkflowIndex(prev => (prev + 1) % WORKFLOW_STEPS.length);
+    }, 3600);
+    return () => clearInterval(interval);
+  }, [isWorkflowAutoPlaying]);
+
+  const handleNextWorkflow = () => {
+    setWorkflowIndex(prev => (prev + 1) % WORKFLOW_STEPS.length);
+  };
+
+  const handlePrevWorkflow = () => {
+    setWorkflowIndex(prev => (prev - 1 + WORKFLOW_STEPS.length) % WORKFLOW_STEPS.length);
+  };
 
   return (
     <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
@@ -234,43 +288,306 @@ const AboutView = () => {
               Empower sports managers with automated hosting workflows, zero-commission options, and scannable pass technologies while providing players with seamless event discovery, instant registration, and lifelong athletic recognition.
             </p>
           </div>
-        </div>
-
-        {/* 5. HOW IT WORKS WORKFLOW */}
-        <div className="glass-card" style={{ padding: '48px 36px', marginBottom: '80px', background: '#FFFFFF', borderRadius: '20px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <span className="badge-gold" style={{ marginBottom: '10px' }}>WORKFLOW</span>
-            <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.2rem', color: '#0F4C2C' }}>
+                {/* 5. HOW IT WORKS WORKFLOW CAROUSEL SLIDER */}
+        <div className="glass-card" style={{ padding: '48px 32px', marginBottom: '80px', background: '#FFFFFF', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(28, 51, 28, 0.08)' }}>
+          
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="badge-gold" style={{ marginBottom: '10px' }}>WORKFLOW PIPELINE</span>
+            <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.4rem', color: '#0F4C2C' }}>
               How SRV Operates
             </h2>
+            <p style={{ color: '#4A6053', fontSize: '0.96rem', marginTop: '6px' }}>
+              Click any step below or use the controls to view the smooth 4-step athlete journey.
+            </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
-            {[
-              { step: '01', title: 'Explore & Filter Events', desc: 'Browse state and national tournaments filtered by Sport, City, Prize Pool, and Date.' },
-              { step: '02', title: 'Review Details & Rules', desc: 'Inspect full venue details, reporting timing, eligibility criteria, and championship rules.' },
-              { step: '03', title: 'Instant Registration', desc: 'Submit player/team info and receive instant digital confirmation with unique receipt numbers.' },
-              { step: '04', title: 'Scan E-Pass & Compete', desc: 'Present scannable QR code pass at stadium gate check-in and compete for top honors.' }
-            ].map((st, i) => (
-              <div key={i} style={{
-                background: '#F4F7F4',
-                padding: '24px',
-                borderRadius: '14px',
-                borderLeft: '4px solid #76A376'
-              }}>
-                <div style={{ fontFamily: 'Cinzel, serif', fontSize: '1.8rem', fontWeight: 900, color: '#76A376', marginBottom: '8px' }}>
-                  {st.step}
-                </div>
-                <h4 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.1rem', color: '#0F4C2C', marginBottom: '8px' }}>
-                  {st.title}
-                </h4>
-                <p style={{ color: '#4A6053', fontSize: '0.86rem', lineHeight: 1.5 }}>
-                  {st.desc}
-                </p>
-              </div>
+          {/* Numbered Step Tabs Navigation */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '36px' }}>
+            {WORKFLOW_STEPS.map((st, i) => (
+              <button
+                key={i}
+                onClick={() => setWorkflowIndex(i)}
+                style={{
+                  background: i === workflowIndex ? '#0F4C2C' : '#F2F7F2',
+                  color: i === workflowIndex ? '#FFFFFF' : '#3D5A3D',
+                  border: i === workflowIndex ? '2px solid #D4AF37' : '1.5px solid rgba(118, 163, 118, 0.4)',
+                  padding: '10px 20px',
+                  borderRadius: '999px',
+                  fontFamily: 'Cinzel, serif',
+                  fontWeight: 800,
+                  fontSize: '0.88rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  boxShadow: i === workflowIndex ? '0 6px 18px rgba(15,76,44,0.3)' : 'none',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <span style={{ color: i === workflowIndex ? '#F7D358' : '#76A376', fontWeight: 900 }}>{st.step}</span>
+                <span>{st.title.split(' ')[0]}</span>
+              </button>
             ))}
           </div>
-        </div>
+
+          {/* 3D Smooth Sliding Cards Stage */}
+          <div style={{
+            position: 'relative',
+            height: '380px',
+            width: '100%',
+            maxWidth: '960px',
+            margin: '0 auto',
+            perspective: '1200px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+
+            {/* Left Nav Arrow */}
+            <button
+              onClick={handlePrevWorkflow}
+              style={{
+                position: 'absolute',
+                left: '10px',
+                zIndex: 30,
+                background: '#FFFFFF',
+                border: '2px solid #76A376',
+                color: '#0F4C2C',
+                borderRadius: '50%',
+                width: '52px',
+                height: '52px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                transition: 'transform 0.2s ease'
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <ChevronLeft size={28} />
+            </button>
+
+            {/* Right Nav Arrow */}
+            <button
+              onClick={handleNextWorkflow}
+              style={{
+                position: 'absolute',
+                right: '10px',
+                zIndex: 30,
+                background: '#FFFFFF',
+                border: '2px solid #76A376',
+                color: '#0F4C2C',
+                borderRadius: '50%',
+                width: '52px',
+                height: '52px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                transition: 'transform 0.2s ease'
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <ChevronRight size={28} />
+            </button>
+
+            {/* Workflow Step Cards */}
+            {WORKFLOW_STEPS.map((stepItem, idx) => {
+              const total = WORKFLOW_STEPS.length;
+              let offset = (idx - workflowIndex + total) % total;
+              if (offset > total / 2) offset -= total;
+
+              let transform = 'translateX(0) scale(1)';
+              let opacity = 1;
+              let zIndex = 10;
+              let filter = 'none';
+              let pointerEvents = 'auto';
+
+              if (offset === 0) {
+                // Active Center Card
+                transform = 'translateX(0) scale(1)';
+                opacity = 1;
+                zIndex = 20;
+                filter = 'none';
+                pointerEvents = 'auto';
+              } else if (offset === 1 || offset === -3) {
+                // Next Peek Card
+                transform = 'translateX(65%) scale(0.85) rotateY(-15deg)';
+                opacity = 0.55;
+                zIndex = 10;
+                filter = 'brightness(0.75)';
+                pointerEvents = 'pointer';
+              } else if (offset === -1 || offset === 3) {
+                // Previous Peek Card
+                transform = 'translateX(-65%) scale(0.85) rotateY(15deg)';
+                opacity = 0.55;
+                zIndex = 10;
+                filter = 'brightness(0.75)';
+                pointerEvents = 'pointer';
+              } else {
+                // Hidden Back Card
+                transform = offset > 0 ? 'translateX(120%) scale(0.6)' : 'translateX(-120%) scale(0.6)';
+                opacity = 0;
+                zIndex = 1;
+                pointerEvents = 'none';
+              }
+
+              const IconComponent = stepItem.icon;
+
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setWorkflowIndex(idx)}
+                  style={{
+                    position: 'absolute',
+                    top: '20px',
+                    left: '50%',
+                    width: '90%',
+                    maxWidth: '540px',
+                    marginLeft: '-270px',
+                    height: '320px',
+                    transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
+                    transform,
+                    opacity,
+                    zIndex,
+                    filter,
+                    borderRadius: '24px',
+                    border: '2.5px solid #D4AF37',
+                    cursor: offset === 0 ? 'default' : 'pointer',
+                    pointerEvents,
+                    overflow: 'hidden',
+                    background: '#051A0E',
+                    boxShadow: '0 20px 45px rgba(28, 51, 28, 0.25)'
+                  }}
+                >
+                  {/* Step Background Image */}
+                  <img
+                    src={stepItem.image}
+                    alt={stepItem.title}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      zIndex: 0
+                    }}
+                  />
+
+                  {/* Dark Fern Glass Overlay */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(15,41,27,0.65) 0%, rgba(15,41,27,0.92) 100%)',
+                    zIndex: 1
+                  }} />
+
+                  {/* Content Inside Card */}
+                  <div style={{
+                    position: 'relative',
+                    zIndex: 10,
+                    height: '100%',
+                    padding: '32px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    color: '#FFFFFF'
+                  }}>
+                    {/* Top Tag & Number Badge */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span className="badge-gold" style={{ background: '#FFFFFF', color: '#0F4C2C', fontSize: '0.75rem', fontWeight: 800 }}>
+                        {stepItem.tag}
+                      </span>
+                      <div style={{
+                        fontFamily: 'Cinzel, serif',
+                        fontSize: '2.8rem',
+                        fontWeight: 900,
+                        color: '#F7D358',
+                        textShadow: '0 2px 10px rgba(0,0,0,0.8)',
+                        lineHeight: 1
+                      }}>
+                        {stepItem.step}
+                      </div>
+                    </div>
+
+                    {/* Step Title & Description */}
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                        <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(255,255,255,0.2)', border: '1px solid #F7D358', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, backdropFilter: 'blur(4px)' }}>
+                          <IconComponent size={22} style={{ color: '#F7D358' }} />
+                        </div>
+                        <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.5rem', color: '#FFFFFF', fontWeight: 800, margin: 0, textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                          {stepItem.title}
+                        </h3>
+                      </div>
+                      <p style={{ color: '#EAF2EA', fontSize: '0.98rem', lineHeight: 1.6, margin: 0, textShadow: '0 1px 6px rgba(0,0,0,0.8)', fontFamily: 'Poppins, sans-serif' }}>
+                        {stepItem.desc}
+                      </p>
+                    </div>
+
+                    {/* Step Progress Line */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ flexGrow: 1, height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '999px', overflow: 'hidden' }}>
+                        <div style={{ width: `${((idx + 1) / total) * 100}%`, height: '100%', background: 'linear-gradient(90deg, #F7D358, #D4AF37)', borderRadius: '999px' }} />
+                      </div>
+                      <span style={{ fontSize: '0.8rem', color: '#F7D358', fontWeight: 700 }}>Step {idx + 1} of {total}</span>
+                    </div>
+
+                  </div>
+
+                </div>
+              );
+            })}
+
+          </div>
+
+          {/* Dots Indicator & Auto-Play Toggle */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', marginTop: '28px' }}>
+            
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+              {WORKFLOW_STEPS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setWorkflowIndex(idx)}
+                  style={{
+                    width: idx === workflowIndex ? '36px' : '10px',
+                    height: '10px',
+                    borderRadius: '999px',
+                    background: idx === workflowIndex ? 'linear-gradient(135deg, #76A376, #0F4C2C)' : 'rgba(118, 163, 118, 0.3)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => setIsWorkflowAutoPlaying(!isWorkflowAutoPlaying)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#76A376',
+                fontSize: '0.9rem',
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              {isWorkflowAutoPlaying ? <Pause size={16} /> : <PlayCircle size={16} />}
+              {isWorkflowAutoPlaying ? 'Pause Workflow Slide Animation' : 'Resume Slide Animation'}
+            </button>
+
+          </div>
+
+        </div>  </div>
 
         {/* 6. LEADERSHIP SHOWCASE */}
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
