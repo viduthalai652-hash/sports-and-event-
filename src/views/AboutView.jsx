@@ -241,55 +241,47 @@ const AboutView = () => {
           </div>
         </div>
 
-        {/* 4. VISION & MISSION */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', marginBottom: '80px' }}>
-          <div className="glass-card" style={{ padding: '36px', background: '#FFFFFF', borderRadius: '16px' }}>
-            <div style={{
-              width: '52px',
-              height: '52px',
-              borderRadius: '12px',
-              background: '#FFFDF5',
-              border: '1px solid #D4AF37',
-              color: '#0F4C2C',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '20px'
-            }}>
-              <Eye size={28} />
-            </div>
-            <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.5rem', color: '#0F4C2C', marginBottom: '12px' }}>
+        {/* 4. OUR VISION SECTION (FULL WIDTH STANDALONE) */}
+        <div className="glass-card" style={{
+          padding: '40px 36px',
+          background: '#FFFFFF',
+          borderRadius: '24px',
+          border: '2px solid rgba(118, 163, 118, 0.3)',
+          marginBottom: '60px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '24px',
+          boxShadow: '0 10px 30px rgba(28, 51, 28, 0.05)',
+          flexWrap: 'wrap'
+        }}>
+          <div style={{
+            width: '64px',
+            height: '64px',
+            borderRadius: '16px',
+            background: '#FFFDF5',
+            border: '2px solid #D4AF37',
+            color: '#0F4C2C',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            boxShadow: '0 4px 15px rgba(212,175,55,0.2)'
+          }}>
+            <Eye size={32} />
+          </div>
+          <div style={{ flex: 1, minWidth: '280px' }}>
+            <span className="badge-gold" style={{ marginBottom: '8px' }}>FOUNDATIONAL GUIDANCE</span>
+            <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.8rem', color: '#0F4C2C', marginBottom: '8px' }}>
               Our Vision
             </h3>
-            <p style={{ color: '#4A6053', lineHeight: 1.7, fontSize: '0.94rem' }}>
+            <p style={{ color: '#4A6053', lineHeight: 1.7, fontSize: '1.02rem', margin: 0, fontFamily: 'Poppins, sans-serif' }}>
               To build India’s most trusted sports network where every grassroot tournament, collegiate championship, and national league is organized with international standards, transparent governance, and digital excellence.
             </p>
           </div>
+        </div>
 
-          <div className="glass-card" style={{ padding: '36px', background: '#FFFFFF', borderRadius: '16px' }}>
-            <div style={{
-              width: '52px',
-              height: '52px',
-              borderRadius: '12px',
-              background: '#E8F5E9',
-              border: '1px solid #146B3A',
-              color: '#146B3A',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '20px'
-            }}>
-              <Target size={28} />
-            </div>
-            <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.5rem', color: '#0F4C2C', marginBottom: '12px' }}>
-              Our Mission
-            </h3>
-            <p style={{ color: '#4A6053', lineHeight: 1.7, fontSize: '0.94rem' }}>
-              Empower sports managers with automated hosting workflows, zero-commission options, and scannable pass technologies while providing players with seamless event discovery, instant registration, and lifelong athletic recognition.
-            </p>
-          </div>
-                {/* 5. HOW IT WORKS WORKFLOW CAROUSEL SLIDER */}
-        <div className="glass-card" style={{ padding: '48px 32px', marginBottom: '80px', background: '#FFFFFF', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(28, 51, 28, 0.08)' }}>
+        {/* 5. HOW IT WORKS WORKFLOW CAROUSEL SLIDER (FULL WIDTH STANDALONE) */}
+        <div className="glass-card" style={{ padding: '48px 32px', marginBottom: '80px', background: '#FFFFFF', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(28, 51, 28, 0.08)', width: '100%' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <span className="badge-gold" style={{ marginBottom: '10px' }}>WORKFLOW PIPELINE</span>
@@ -587,7 +579,7 @@ const AboutView = () => {
 
           </div>
 
-        </div>  </div>
+        </div>
 
         {/* 6. LEADERSHIP SHOWCASE */}
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
