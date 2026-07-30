@@ -44,44 +44,46 @@ const EventsView = () => {
     <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F4F7F4' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
-        {/* Page Hero Header with Full-Bleed 100% Vivid Sidewides Sports Banner Background */}
+        {/* Page Hero Header with Olympic Champions Sports Banner Background */}
         <div style={{
           position: 'relative',
           width: '100%',
-          padding: '60px 24px 50px',
+          padding: '64px 24px 54px',
           marginBottom: '40px',
           textAlign: 'center',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '320px',
-          borderRadius: '24px'
+          minHeight: '360px',
+          borderRadius: '24px',
+          border: '2px solid #76A376',
+          boxShadow: '0 15px 40px rgba(28, 51, 28, 0.12)'
         }}>
-          {/* Full-Width Sidewides 100% Vivid Background Sports Banner Image */}
+          {/* Full-Width Sidewides 100% Vivid Olympic Sports Banner Image */}
           <img
             src="/sports-banner.png"
-            alt="Sports Action Banner"
+            alt="Olympic Champions Sports Banner"
             style={{
               position: 'absolute',
               inset: 0,
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center',
+              objectPosition: 'center 35%',
               zIndex: 0,
               opacity: 1
             }}
           />
 
           {/* Banner Hero Text Content with Ultra-Crisp White Backlight Text-Shadows */}
-          <div style={{ position: 'relative', zIndex: 10, maxWidth: '960px', margin: '0 auto' }}>
+          <div style={{ position: 'relative', zIndex: 10, maxWidth: '980px', margin: '0 auto' }}>
             <span className="badge-gold animate-pulse-gold" style={{
               marginBottom: '18px',
               display: 'inline-flex',
-              padding: '8px 22px',
+              padding: '8px 24px',
               fontSize: '0.88rem',
-              background: 'rgba(255, 255, 255, 0.95)',
+              background: 'rgba(255, 255, 255, 0.96)',
               border: '2px solid #D4AF37',
               boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
               fontWeight: 800
@@ -97,21 +99,21 @@ const EventsView = () => {
               fontWeight: 900,
               lineHeight: 1.2,
               marginBottom: '18px',
-              textShadow: '0 0 20px #FFFFFF, 0 0 35px #FFFFFF, 0 3px 12px rgba(255,255,255,1), 0 2px 4px rgba(0,0,0,0.6)'
+              textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)'
             }}>
               Empowering Champions & <br />
-              <span style={{ color: '#1C331C', textShadow: '0 0 20px #FFFFFF, 0 0 35px #FFFFFF, 0 3px 12px rgba(255,255,255,1), 0 2px 4px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
+              <span style={{ color: '#1C331C', textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
             </h1>
             
             <p style={{
               color: '#0F4C2C',
               fontSize: '1.12rem',
-              maxWidth: '800px',
+              maxWidth: '820px',
               margin: '0 auto',
               lineHeight: 1.65,
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 700,
-              textShadow: '0 0 16px #FFFFFF, 0 0 25px #FFFFFF, 0 2px 8px rgba(255,255,255,1), 0 1px 3px rgba(0,0,0,0.5)'
+              textShadow: '0 0 18px #FFFFFF, 0 0 28px #FFFFFF, 0 2px 10px rgba(255,255,255,1), 0 1px 4px rgba(0,0,0,0.5)'
             }}>
               Browse verified national marathons, T20 cricket cups, state athletic meets, football leagues, and pro championships with real-time registrations and instant QR digital gate passes.
             </p>
