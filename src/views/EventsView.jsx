@@ -98,25 +98,12 @@ const EventsView = () => {
               color: '#0F4C2C',
               fontWeight: 900,
               lineHeight: 1.2,
-              marginBottom: '18px',
+              marginBottom: '0',
               textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)'
             }}>
               Empowering Champions & <br />
               <span style={{ color: '#1C331C', textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
             </h1>
-            
-            <p style={{
-              color: '#0F4C2C',
-              fontSize: '1.12rem',
-              maxWidth: '820px',
-              margin: '0 auto',
-              lineHeight: 1.65,
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
-              textShadow: '0 0 18px #FFFFFF, 0 0 28px #FFFFFF, 0 2px 10px rgba(255,255,255,1), 0 1px 4px rgba(0,0,0,0.5)'
-            }}>
-              Browse verified national marathons, T20 cricket cups, state athletic meets, football leagues, and pro championships with real-time registrations and instant QR digital gate passes.
-            </p>
           </div>
         </div>
 
