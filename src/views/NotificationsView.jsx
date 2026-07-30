@@ -566,6 +566,31 @@ const NotificationsView = () => {
             ) : (
               filteredNotifications.map((notice) => {
                 const isBookmarked = bookmarkedIds.includes(notice.id);
+                
+                const getNoticeImage = (n) => {
+                  if (n.image) return n.image;
+                  const t = (n.title || '').toLowerCase();
+                  if (t.includes('marathon') || t.includes('run')) {
+                    return 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=800&q=80';
+                  }
+                  if (t.includes('cricket') || t.includes('t20')) {
+                    return 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80';
+                  }
+                  if (t.includes('football')) {
+                    return '/football-banner.jpg';
+                  }
+                  if (t.includes('kabaddi')) {
+                    return '/kabaddi-banner.jpg';
+                  }
+                  if (t.includes('cycling')) {
+                    return 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=800&q=80';
+                  }
+                  if (t.includes('badminton')) {
+                    return 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80';
+                  }
+                  return 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80';
+                };
+
                 return (
                   <div
                     key={notice.id}
@@ -573,28 +598,51 @@ const NotificationsView = () => {
                     style={{
                       background: '#FFFFFF',
                       borderRadius: '24px',
-                      padding: '24px 28px',
+                      overflow: 'hidden',
                       border: '1.5px solid rgba(118, 163, 118, 0.3)',
                       boxShadow: '0 8px 24px rgba(0,0,0,0.04)',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
-                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                      transition: 'transform 0.25s ease, box-shadow 0.25s ease'
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.transform = 'translateY(-4px)';
-                      e.currentTarget.style.boxShadow = '0 15px 35px rgba(15,76,44,0.1)';
+                      e.currentTarget.style.boxShadow = '0 15px 35px rgba(15,76,44,0.12)';
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.transform = 'translateY(0)';
                       e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.04)';
                     }}
                   >
-                    <div>
-                      {/* Badges Row */}
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-                          <span className="badge-gold">
+                    {/* Notification Card Thumbnail Banner Image */}
+                    <div style={{ position: 'relative', height: '170px', width: '100%', overflow: 'hidden', background: '#0F4C2C' }}>
+                      <img
+                        src={getNoticeImage(notice)}
+                        alt={notice.title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover'
+                        }}
+                      />
+                      <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(15,76,44,0.7) 100%)'
+                      }} />
+
+                      {/* Overlay Badges & Actions */}
+                      <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        padding: '16px 20px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start'
+                      }}>
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                          <span className="badge-gold" style={{ background: '#FFFFFF', color: '#0F4C2C' }}>
                             {notice.category || 'GENERAL'}
                           </span>
                           {notice.priority && (
@@ -609,18 +657,14 @@ const NotificationsView = () => {
                               {notice.priority}
                             </span>
                           )}
-                          <span style={{ fontSize: '0.78rem', color: '#6B7C72', fontWeight: 600 }}>
-                            • {notice.date || 'Today'}
-                          </span>
                         </div>
 
-                        {/* Quick Actions */}
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <button
                             onClick={() => toggleBookmark(notice.id)}
                             title="Bookmark announcement"
                             style={{
-                              background: '#F4F7F4',
+                              background: 'rgba(255, 255, 255, 0.92)',
                               border: 'none',
                               borderRadius: '50%',
                               width: '34px',
@@ -629,7 +673,8 @@ const NotificationsView = () => {
                               alignItems: 'center',
                               justifyContent: 'center',
                               cursor: 'pointer',
-                              color: isBookmarked ? '#B88E14' : '#6B7C72'
+                              color: isBookmarked ? '#B88E14' : '#1C331C',
+                              boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                             }}
                           >
                             <Bookmark size={16} fill={isBookmarked ? '#B88E14' : 'none'} />
@@ -638,7 +683,7 @@ const NotificationsView = () => {
                             onClick={() => setActiveShareNotice(notice)}
                             title="Share announcement"
                             style={{
-                              background: '#F4F7F4',
+                              background: 'rgba(255, 255, 255, 0.92)',
                               border: 'none',
                               borderRadius: '50%',
                               width: '34px',
@@ -647,65 +692,75 @@ const NotificationsView = () => {
                               alignItems: 'center',
                               justifyContent: 'center',
                               cursor: 'pointer',
-                              color: '#0F4C2C'
+                              color: '#0F4C2C',
+                              boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                             }}
                           >
                             <Share2 size={16} />
                           </button>
                         </div>
                       </div>
-
-                      <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.3rem', color: '#0F4C2C', fontWeight: 900, marginBottom: '8px' }}>
-                        {notice.title}
-                      </h3>
-
-                      <p style={{ color: '#4A6053', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '16px', fontFamily: 'Poppins, sans-serif' }}>
-                        {notice.content || notice.desc}
-                      </p>
                     </div>
 
-                    {/* Footer Actions Row */}
-                    <div style={{ paddingTop: '14px', borderTop: '1px solid #F1F5F1', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-                      <div style={{ fontSize: '0.8rem', color: '#5E7A5E', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <ShieldCheck size={14} style={{ color: '#0F4C2C' }} />
-                        <span>Host: {notice.organizer || 'SRV Official Committee'}</span>
+                    {/* Card Content */}
+                    <div style={{ padding: '20px 24px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
+                      <div>
+                        <div style={{ fontSize: '0.78rem', color: '#6B7C72', fontWeight: 600, marginBottom: '6px' }}>
+                          📅 Published: {notice.date || 'Today'} • {notice.readTime || '2 min read'}
+                        </div>
+
+                        <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.25rem', color: '#0F4C2C', fontWeight: 900, marginBottom: '8px' }}>
+                          {notice.title}
+                        </h3>
+
+                        <p style={{ color: '#4A6053', fontSize: '0.9rem', lineHeight: 1.55, marginBottom: '16px', fontFamily: 'Poppins, sans-serif' }}>
+                          {notice.content || notice.desc}
+                        </p>
                       </div>
 
-                      <div style={{ display: 'flex', gap: '10px' }}>
-                        <button
-                          onClick={() => setActiveDetailNotice(notice)}
-                          style={{
-                            background: '#FFFDF5',
-                            color: '#0F4C2C',
-                            border: '1.5px solid #D4AF37',
-                            borderRadius: '999px',
-                            padding: '8px 20px',
-                            fontSize: '0.82rem',
-                            fontWeight: 800,
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px'
-                          }}
-                        >
-                          <Eye size={14} />
-                          Read Full Details
-                        </button>
-                        <button
-                          onClick={() => navigateTo('events')}
-                          style={{
-                            background: 'linear-gradient(135deg, #0F4C2C, #1C331C)',
-                            color: '#FFFFFF',
-                            border: 'none',
-                            borderRadius: '999px',
-                            padding: '8px 20px',
-                            fontSize: '0.82rem',
-                            fontWeight: 800,
-                            cursor: 'pointer'
-                          }}
-                        >
-                          Proceed
-                        </button>
+                      {/* Footer Actions Row */}
+                      <div style={{ paddingTop: '14px', borderTop: '1px solid #F1F5F1', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                        <div style={{ fontSize: '0.8rem', color: '#5E7A5E', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <ShieldCheck size={14} style={{ color: '#0F4C2C' }} />
+                          <span>Host: {notice.organizer || 'SRV Official Committee'}</span>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <button
+                            onClick={() => setActiveDetailNotice(notice)}
+                            style={{
+                              background: '#FFFDF5',
+                              color: '#0F4C2C',
+                              border: '1.5px solid #D4AF37',
+                              borderRadius: '999px',
+                              padding: '8px 18px',
+                              fontSize: '0.82rem',
+                              fontWeight: 800,
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px'
+                            }}
+                          >
+                            <Eye size={14} />
+                            Read Details
+                          </button>
+                          <button
+                            onClick={() => navigateTo('events')}
+                            style={{
+                              background: 'linear-gradient(135deg, #0F4C2C, #1C331C)',
+                              color: '#FFFFFF',
+                              border: 'none',
+                              borderRadius: '999px',
+                              padding: '8px 20px',
+                              fontSize: '0.82rem',
+                              fontWeight: 800,
+                              cursor: 'pointer'
+                            }}
+                          >
+                            Proceed
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
