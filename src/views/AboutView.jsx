@@ -66,72 +66,72 @@ const AboutView = () => {
 
   return (
     <div style={{ padding: '60px 24px', minHeight: '85vh', background: '#F8FAF8' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-        
-        {/* 1. HERO PLATFORM BANNER WITH NEW MULTI-COLORED SPORTS SILHOUETTE BACKGROUND */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          padding: '64px 24px 54px',
-          marginBottom: '50px',
-          textAlign: 'center',
-          overflow: 'hidden',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '340px',
-          borderRadius: '24px',
-          border: '2px solid #76A376',
-          boxShadow: '0 15px 40px rgba(28, 51, 28, 0.12)'
-        }}>
-          {/* Full-Width Vivid Background Sports Silhouette Banner Image */}
-          <img
-            src="/about-sports-banner.jpg"
-            alt="Multi-Colored Sports Silhouettes Banner"
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center 40%',
-              zIndex: 0,
-              opacity: 1
-            }}
-          />
+      {/* 1. HERO PLATFORM BANNER WITH FULL-BLEED 100VW BACKGROUND (0px Upper Gap, 0px Side Gaps) */}
+      <div style={{
+        position: 'relative',
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)',
+        marginRight: 'calc(-50vw + 50%)',
+        marginTop: '-60px',
+        marginBottom: '50px',
+        padding: '75px 24px 65px',
+        textAlign: 'center',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '380px'
+      }}>
+        {/* Full-Width Vivid Background Sports Silhouette Banner Image */}
+        <img
+          src="/about-sports-banner.jpg"
+          alt="Multi-Colored Sports Silhouettes Banner"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 40%',
+            zIndex: 0,
+            opacity: 1
+          }}
+        />
 
-          {/* Banner Hero Text Content with Ultra-Crisp White Backlight Text-Shadows */}
-          <div style={{ position: 'relative', zIndex: 10, maxWidth: '960px', margin: '0 auto' }}>
-            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-              <Logo size="lg" />
-            </div>
-            <div className="badge-gold animate-pulse-gold" style={{
-              marginBottom: '18px',
-              display: 'inline-flex',
-              padding: '8px 22px',
-              fontSize: '0.88rem',
-              background: 'rgba(255, 255, 255, 0.96)',
-              border: '2px solid #D4AF37',
-              boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-              fontWeight: 800
-            }}>
-              <Sparkles size={16} style={{ color: '#B88E14' }} />
-              INDIA'S PREMIER SPORTS & EVENT ECOSYSTEM
-            </div>
-            <h1 style={{
-              fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(2.3rem, 4.8vw, 3.6rem)',
-              color: '#0F4C2C',
-              fontWeight: 900,
-              lineHeight: 1.2,
-              marginBottom: '0',
-              textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)'
-            }}>
-              Empowering Champions & <br />
-              <span style={{ color: '#1C331C', textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
-            </h1>
+        {/* Banner Hero Text Content with Ultra-Crisp White Backlight Text-Shadows */}
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1080px', margin: '0 auto', padding: '0 20px' }}>
+          <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+            <Logo size="lg" />
           </div>
+          <div className="badge-gold animate-pulse-gold" style={{
+            marginBottom: '18px',
+            display: 'inline-flex',
+            padding: '8px 22px',
+            fontSize: '0.88rem',
+            background: 'rgba(255, 255, 255, 0.96)',
+            border: '2px solid #D4AF37',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+            fontWeight: 800
+          }}>
+            <Sparkles size={16} style={{ color: '#B88E14' }} />
+            INDIA'S PREMIER SPORTS & EVENT ECOSYSTEM
+          </div>
+          <h1 style={{
+            fontFamily: 'Cinzel, serif',
+            fontSize: 'clamp(2.3rem, 4.8vw, 3.6rem)',
+            color: '#0F4C2C',
+            fontWeight: 900,
+            lineHeight: 1.2,
+            marginBottom: '0',
+            textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)'
+          }}>
+            Empowering Champions & <br />
+            <span style={{ color: '#1C331C', textShadow: '0 0 22px #FFFFFF, 0 0 38px #FFFFFF, 0 3px 14px rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.6)' }}>Elevating Indian Sports Management</span>
+          </h1>
         </div>
+      </div>
+
+      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
         {/* 2. PLATFORM IMPACT STATS */}
         <div style={{
