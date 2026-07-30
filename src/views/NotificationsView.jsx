@@ -151,6 +151,10 @@ const NotificationsView = () => {
       
       {/* 1. BREAKING NEWS TICKER (TOP SCROLLING MARQUEE BANNER) */}
       <div style={{
+        position: 'relative',
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)',
+        marginRight: 'calc(-50vw + 50%)',
         background: 'linear-gradient(90deg, #0F4C2C 0%, #1C331C 100%)',
         color: '#F7D358',
         padding: '10px 24px',
@@ -535,10 +539,16 @@ const NotificationsView = () => {
         </div>
 
         {/* 6. MAIN CONTENT LAYOUT (CARDS GRID + RIGHT SIDEBAR) */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', marginBottom: '70px' }}>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '32px',
+          marginBottom: '70px',
+          alignItems: 'flex-start'
+        }}>
           
           {/* LEFT: REDESIGNED NOTIFICATION CARDS LIST */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', gridColumn: 'span 2' }}>
+          <div style={{ flex: '1 1 600px', display: 'flex', flexDirection: 'column', gap: '20px', minWidth: 0 }}>
             
             {filteredNotifications.length === 0 ? (
               <div style={{
@@ -771,7 +781,7 @@ const NotificationsView = () => {
           </div>
 
           {/* RIGHT SIDEBAR: LIVE ACTIVITY STREAM & POPULAR TOPICS */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ flex: '0 0 340px', maxWidth: '100%', display: 'flex', flexDirection: 'column', gap: '24px' }}>
             
             {/* Live Activity Stream Panel */}
             <div style={{
