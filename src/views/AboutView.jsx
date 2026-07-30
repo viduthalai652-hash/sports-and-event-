@@ -552,105 +552,7 @@ const AboutView = () => {
           </div>
         </div>
 
-        {/* 6. ATHLETE JOURNEY & WORKFLOW PIPELINE (PRESERVED & ENHANCED) */}
-        <div style={{ marginBottom: '70px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <span className="badge-gold" style={{ marginBottom: '12px' }}>INTERACTIVE WORKFLOW PIPELINE</span>
-            <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.4rem', color: '#0F4C2C', fontWeight: 900 }}>
-              How SRV Operates
-            </h2>
-            <p style={{ color: '#4A6053', fontSize: '0.98rem', marginTop: '8px', maxWidth: '600px', margin: '8px auto 0' }}>
-              Four simple steps from discovering verified sports competitions to entering the arena with instant digital gate passes.
-            </p>
-          </div>
 
-          {/* Step Pill Tabs */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '32px', flexWrap: 'wrap' }}>
-            {WORKFLOW_STEPS.map((s, idx) => (
-              <button
-                key={idx}
-                onClick={() => { setWorkflowIndex(idx); setIsWorkflowAutoPlaying(false); }}
-                style={{
-                  padding: '8px 20px',
-                  borderRadius: '999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 800,
-                  cursor: 'pointer',
-                  border: workflowIndex === idx ? '1.5px solid #D4AF37' : '1px solid rgba(118, 163, 118, 0.4)',
-                  background: workflowIndex === idx ? 'linear-gradient(135deg, #0F4C2C, #1C331C)' : '#FFFFFF',
-                  color: workflowIndex === idx ? '#FFFFFF' : '#1C331C',
-                  boxShadow: workflowIndex === idx ? '0 4px 15px rgba(15, 76, 44, 0.25)' : 'none',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                [ {s.step} ] {s.title.split(' ')[0]}
-              </button>
-            ))}
-          </div>
-
-          {/* Workflow Active Step Display */}
-          {WORKFLOW_STEPS[workflowIndex] && (
-            <div style={{
-              background: '#FFFFFF',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              boxShadow: '0 15px 35px rgba(15, 76, 44, 0.12)',
-              border: '2px solid #D4AF37',
-              maxWidth: '880px',
-              margin: '0 auto'
-            }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-                <div style={{ position: 'relative', minHeight: '260px' }}>
-                  <img src={WORKFLOW_STEPS[workflowIndex].image} alt={WORKFLOW_STEPS[workflowIndex].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ padding: '36px 30px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#B88E14', letterSpacing: '1px', marginBottom: '10px' }}>
-                    {WORKFLOW_STEPS[workflowIndex].tag}
-                  </div>
-                  <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.6rem', color: '#0F4C2C', fontWeight: 900, marginBottom: '12px' }}>
-                    {WORKFLOW_STEPS[workflowIndex].title}
-                  </h3>
-                  <p style={{ color: '#4A6053', fontSize: '0.94rem', lineHeight: 1.6, fontFamily: 'Poppins, sans-serif', marginBottom: '20px' }}>
-                    {WORKFLOW_STEPS[workflowIndex].desc}
-                  </p>
-                  
-                  <div style={{ display: 'flex', gap: '12px' }}>
-                    <button
-                      onClick={handlePrevWorkflow}
-                      style={{
-                        background: '#F4F7F4',
-                        border: '1px solid #0F4C2C',
-                        borderRadius: '999px',
-                        padding: '8px 18px',
-                        cursor: 'pointer',
-                        color: '#0F4C2C',
-                        fontWeight: 700,
-                        fontSize: '0.85rem'
-                      }}
-                    >
-                      ← Previous
-                    </button>
-                    <button
-                      onClick={handleNextWorkflow}
-                      style={{
-                        background: 'linear-gradient(135deg, #0F4C2C, #1C331C)',
-                        border: 'none',
-                        borderRadius: '999px',
-                        padding: '8px 20px',
-                        cursor: 'pointer',
-                        color: '#FFFFFF',
-                        fontWeight: 700,
-                        fontSize: '0.85rem'
-                      }}
-                    >
-                      Next Step →
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
 
         {/* 7. CHAMPIONS GALLERY (NEW SECTION) */}
         <div style={{ marginBottom: '70px' }}>
@@ -731,32 +633,6 @@ const AboutView = () => {
           </div>
         </div>
 
-        {/* 8. HALL OF CHAMPIONS (NEW) */}
-        <div style={{ marginBottom: '70px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-            <span className="badge-gold" style={{ marginBottom: '12px' }}>HALL OF CHAMPIONS</span>
-            <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '2.4rem', color: '#0F4C2C', fontWeight: 900 }}>
-              National Trophy Winners
-            </h2>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-            {[
-              { name: 'Arjun Sharma', sport: 'Cricket', year: '2025 Champion', prize: '₹3,00,000', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80' },
-              { name: 'Priya Sundaram', sport: 'Running', year: '2025 Gold Medal', prize: '₹1,50,000', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80' },
-              { name: 'Karan Varma', sport: 'Football', year: '2025 Golden Boot', prize: '₹2,00,000', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80' },
-              { name: 'Ananya Deshmukh', sport: 'Badminton', year: '2025 Masters', prize: '₹1,00,000', img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80' }
-            ].map((c, i) => (
-              <div key={i} style={{ background: '#FFFFFF', padding: '24px', borderRadius: '20px', textAlign: 'center', border: '1.5px solid #D4AF37', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
-                <img src={c.img} alt={c.name} style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 12px', border: '3px solid #D4AF37' }} />
-                <h4 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.1rem', color: '#0F4C2C', fontWeight: 800 }}>{c.name}</h4>
-                <div style={{ fontSize: '0.82rem', color: '#B88E14', fontWeight: 700, marginTop: '2px' }}>{c.sport} • {c.year}</div>
-                <div style={{ fontSize: '0.9rem', color: '#0F4C2C', fontWeight: 900, marginTop: '6px' }}>Prize Won: {c.prize}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* 9. LEADERSHIP TEAM SHOWCASE (PRESERVED & ENHANCED) */}
         <div style={{ textAlign: 'center', marginBottom: '70px' }}>
           <span className="badge-gold" style={{ marginBottom: '12px' }}>LEADERSHIP & ADVISORY</span>
@@ -782,35 +658,6 @@ const AboutView = () => {
                 <p style={{ color: '#76A376', fontSize: '0.85rem', marginTop: '4px', fontWeight: 600 }}>{member.title}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* 10. PARTNERS & SPONSORS MARQUEE (NEW) */}
-        <div style={{ marginBottom: '70px', textAlign: 'center' }}>
-          <span className="badge-gold" style={{ marginBottom: '12px' }}>FEDERATIONS & SPONSORS</span>
-          <h3 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.6rem', color: '#0F4C2C', marginBottom: '24px', fontWeight: 800 }}>
-            Trusted By Leading Sports Bodies
-          </h3>
-
-          <div style={{
-            background: '#FFFFFF',
-            borderRadius: '20px',
-            padding: '24px',
-            border: '1px solid rgba(118,163,118,0.3)',
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '24px',
-            color: '#0F4C2C',
-            fontWeight: 800,
-            fontSize: '1rem'
-          }}>
-            <span>🏆 Sports Authority of India</span>
-            <span>🏏 BCCI Affiliates</span>
-            <span>⚽ AIFF League Partners</span>
-            <span>🏃 Athletics Federation</span>
-            <span>🏸 Yonex India</span>
           </div>
         </div>
 
