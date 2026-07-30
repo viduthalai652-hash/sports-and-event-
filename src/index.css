@@ -428,12 +428,12 @@ button, .btn {
   }
 
   h2 {
-    font-size: clamp(1.5rem, 5.5vw, 2.1rem) !important;
+    font-size: clamp(1.4rem, 5.5vw, 2.1rem) !important;
     line-height: 1.25 !important;
   }
 
   h3 {
-    font-size: clamp(1.15rem, 4.5vw, 1.4rem) !important;
+    font-size: clamp(1.1rem, 4.5vw, 1.35rem) !important;
   }
 
   p {
@@ -450,7 +450,7 @@ button, .btn {
     font-size: 16px !important;
   }
 
-  /* Notifications Card Stack on Mobile */
+  /* Notifications & Event Cards Responsive Stack */
   .notification-card-responsive {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -477,15 +477,43 @@ button, .btn {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
+
+  /* Responsive Horizontal Scroll Filter Bars */
+  .filter-bar-scrollable {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 8px !important;
+    scrollbar-width: none !important;
+  }
+
+  .filter-bar-scrollable::-webkit-scrollbar {
+    display: none !important;
+  }
 }
 
 @media (max-width: 640px) {
+  /* Logo Text Mobile Responsiveness */
+  .logo-sub-text {
+    display: none !important;
+  }
+
+  .logo-title-text {
+    font-size: 1.05rem !important;
+    letter-spacing: 0.4px !important;
+  }
+
   .event-hero-responsive {
     height: 270px !important;
   }
 
   .event-tab-card-responsive {
     padding: 18px !important;
+  }
+
+  /* Sticky Sidebars become static on mobile */
+  div[style*="position: sticky"] {
+    position: relative !important;
+    top: 0 !important;
   }
 
   .btn {
